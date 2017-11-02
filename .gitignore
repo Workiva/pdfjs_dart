@@ -1,0 +1,7 @@
+# Dart
+.packages
+pubspec.lock
+
+# JavaScript
+node_modules/
+package-lock.json
