@@ -144,17 +144,17 @@ class PDFJS {
     return new PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
 
-  static PDFDocumentLoadingTask getDocumentString(String src) {
+  static PDFDocumentLoadingTask getDocumentByString(String src) {
     // ignore: deprecated_member_use
     return getDocument(src);
   }
 
-  static PDFDocumentLoadingTask getDocumentTypedArray(TypedData src) {
+  static PDFDocumentLoadingTask getDocumentByTypedArray(TypedData src) {
     // ignore: deprecated_member_use
     return getDocument(src);
   }
 
-  static PDFDocumentLoadingTask getDocumentPDFDataRangeTransport(
+  static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(
       PDFDataRangeTransport src) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
