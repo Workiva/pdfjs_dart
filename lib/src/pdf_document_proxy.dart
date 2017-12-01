@@ -50,7 +50,8 @@ class PDFDocumentProxy {
   }
 
   Future<String> getPageMode() {
-    JsObject promise = _jsInternal['getPageMode'].apply([], thisArg: _jsInternal);
+    JsObject promise =
+        _jsInternal['getPageMode'].apply([], thisArg: _jsInternal);
 
     return _promiseToFuture<String>(promise);
   }
