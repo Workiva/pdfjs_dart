@@ -62,7 +62,8 @@ class PDFPageView {
   }
 
   void setPdfPage(PDFPageProxy pdfPage) {
-    _jsInternal['setPdfPage'].apply([pdfPage._jsInternal], thisArg: _jsInternal);
+    _jsInternal['setPdfPage']
+        .apply([pdfPage._jsInternal], thisArg: _jsInternal);
   }
 
   void update(num scale, [num rotation = 0]) {
