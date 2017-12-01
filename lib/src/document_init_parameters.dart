@@ -21,11 +21,11 @@ enum NativeImageDecoderSupport {
 }
 
 class DocumentInitParameters {
-  Map<String, dynamic> _jsInternal;
+  JsObject _jsInternal;
   PDFDataRangeTransport _range;
 
   DocumentInitParameters() {
-    _jsInternal = new Map<String, dynamic>();
+    _jsInternal = new JsObject.jsify({});
   }
 
   TypedData get data => _jsInternal['data'];
@@ -69,7 +69,7 @@ class DocumentInitParameters {
 
   PDFDataRangeTransport get range => _range;
   set range(PDFDataRangeTransport range) {
-    _jsInternal['range'] = range;
+    _jsInternal['range'] = range._jsInternal;
 
     // It's not ideal that we store this, but PDF.js shouldn't be setting this
     // property and we can't properly recreate the original object
