@@ -19,6 +19,7 @@ import 'dart:html';
 import 'dart:js';
 import 'dart:typed_data';
 
+part 'src/document_init_parameters.dart';
 part 'src/pdfjs_global.dart';
 part 'src/page_viewport.dart';
 part 'src/pdf_data_range_transport.dart';

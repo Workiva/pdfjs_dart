@@ -144,6 +144,12 @@ class PDFJS {
     return new PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
 
+  static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(
+      DocumentInitParameters src) {
+    // ignore: deprecated_member_use
+    return getDocument(src._jsInternal);
+  }
+
   static PDFDocumentLoadingTask getDocumentByString(String src) {
     // ignore: deprecated_member_use
     return getDocument(src);
