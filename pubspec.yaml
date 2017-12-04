@@ -1,5 +1,5 @@
 name: pdfjs
-version: 1.10.90
+version: 1.10.90+1
 
 description: Dart bindings for Mozilla's PDF.js library
 
