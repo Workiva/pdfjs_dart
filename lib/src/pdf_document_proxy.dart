@@ -28,30 +28,28 @@ class PDFDocumentProxy {
   int get numPages => _jsInternal['numPages'];
 
   void cleanup() {
-    _jsInternal['cleanup'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('cleanup', []);
   }
 
   void destroy() {
-    _jsInternal['destroy'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('destroy', []);
   }
 
   Future<TypedData> getData() {
-    JsObject promise = _jsInternal['getData'].apply([], thisArg: _jsInternal);
+    JsObject promise = _jsInternal.callMethod('getData', []);
 
     return _promiseToFuture<TypedData>(promise);
   }
 
   Future<PDFPageProxy> getPage(int pageNumber) {
-    JsObject promise =
-        _jsInternal['getPage'].apply([pageNumber], thisArg: _jsInternal);
+    JsObject promise = _jsInternal.callMethod('getPage', [pageNumber]);
 
     return _promiseToFuture<PDFPageProxy>(promise,
         transform: (value) => new PDFPageProxy._withJsInternal(value));
   }
 
   Future<String> getPageMode() {
-    JsObject promise =
-        _jsInternal['getPageMode'].apply([], thisArg: _jsInternal);
+    JsObject promise = _jsInternal.callMethod('getPageMode', []);
 
     return _promiseToFuture<String>(promise);
   }

@@ -32,12 +32,12 @@ class PDFPageProxy {
   List<num> get view => _jsInternal['view'];
 
   void cleanup() {
-    _jsInternal['cleanup'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('cleanup', []);
   }
 
   PageViewport getViewport(num scale, [int rotate = null]) {
     JsObject jsViewport =
-        _jsInternal['getViewport'].apply([scale, rotate], thisArg: _jsInternal);
+        _jsInternal.callMethod('getViewport', [scale, rotate]);
 
     return new PageViewport._withJsInternal(jsViewport);
   }

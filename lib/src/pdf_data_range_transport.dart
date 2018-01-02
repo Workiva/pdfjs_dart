@@ -30,20 +30,20 @@ abstract class PDFDataRangeTransport {
   void abort() {}
 
   void onDataProgress(int loaded) {
-    _jsInternal['onDataProgress'].apply([loaded], thisArg: _jsInternal);
+    _jsInternal.callMethod('onDataProgress', [loaded]);
   }
 
   void onDataProgressiveRead(Uint8List chunk) {
-    _jsInternal['onDataProgressiveRead'].apply([chunk], thisArg: _jsInternal);
+    _jsInternal.callMethod('onDataProgressiveRead', [chunk]);
   }
 
   void onDataRange(int begin, Uint8List chunk) {
-    _jsInternal['onDataRange'].apply([begin, chunk], thisArg: _jsInternal);
+    _jsInternal.callMethod('onDataRange', [begin, chunk]);
   }
 
   void requestDataRange(int begin, int end);
 
   void transportReady() {
-    _jsInternal['transportReady'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('transportReady', []);
   }
 }
