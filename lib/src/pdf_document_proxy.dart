@@ -26,7 +26,14 @@ class PageReference {
 
 enum DestinationType { XYZ, Fit, FitH, FitV, FitR, FitB, FitBH, FitBV }
 
-DestinationType _destinationTypeFromString(String typeString) {
+DestinationType _destinationTypeFromName(dynamic jsType) {
+  String typeString;
+  if (jsType is JsObject) {
+    typeString = jsType['name'];
+  } else if (jsType is String) {
+    typeString = jsType;
+  }
+
   if (typeString == 'XYZ') {
     return DestinationType.XYZ;
   } else if (typeString == 'Fit') {
@@ -63,9 +70,9 @@ List<dynamic> _dartifyExplicitDestination(List<dynamic> jsDest) {
   // for it
   dartDest[0] = new PageReference._withJsInternal(jsDest[0]);
 
-  // The second item is always a string specifying the action to take on
-  // selecting the outline item
-  dartDest[1] = _destinationTypeFromString(jsDest[1]);
+  // The second item is either a string or name object specifying the action to
+  // take on selecting the outline item
+  dartDest[1] = _destinationTypeFromName(jsDest[1]);
 
   // Copy the remaining values, which should be numbers
   dartDest.setRange(2, jsDest.length, jsDest, 2);
