@@ -159,6 +159,12 @@ class PDFDocumentProxy {
         transform: (value) => _dartifyExplicitDestination(value));
   }
 
+  Future<List<String>> getJavaScript() {
+    JsObject promise = _jsInternal.callMethod('getJavaScript', []);
+
+    return _promiseToFuture<List<String>>(promise);
+  }
+
   Future<List<OutlineItem>> getOutline() {
     JsObject promise = _jsInternal.callMethod('getOutline', []);
 
