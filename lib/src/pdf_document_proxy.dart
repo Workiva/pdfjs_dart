@@ -152,11 +152,31 @@ class PDFDocumentProxy {
     return _promiseToFuture<TypedData>(promise);
   }
 
+  Future<List<dynamic>> getDestination(String id) {
+    JsObject promise = _jsInternal.callMethod('getDestination', [id]);
+
+    return _promiseToFuture<List<dynamic>>(promise,
+        transform: (value) => _dartifyExplicitDestination(value));
+  }
+
+  Future<List<OutlineItem>> getOutline() {
+    JsObject promise = _jsInternal.callMethod('getOutline', []);
+
+    return _promiseToFuture<List<OutlineItem>>(promise,
+        transform: (value) => _dartifyOutlineItemList(value));
+  }
+
   Future<PDFPageProxy> getPage(int pageNumber) {
     JsObject promise = _jsInternal.callMethod('getPage', [pageNumber]);
 
     return _promiseToFuture<PDFPageProxy>(promise,
         transform: (value) => new PDFPageProxy._withJsInternal(value));
+  }
+
+  Future<int> getPageIndex(PageReference ref) {
+    JsObject promise = _jsInternal.callMethod('getPageIndex', [ref]);
+
+    return _promiseToFuture<int>(promise);
   }
 
   Future<String> getPageMode() {
