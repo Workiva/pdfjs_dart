@@ -180,7 +180,7 @@ class PDFDocumentProxy {
   }
 
   Future<int> getPageIndex(PageReference ref) {
-    JsObject promise = _jsInternal.callMethod('getPageIndex', [ref]);
+    JsObject promise = _jsInternal.callMethod('getPageIndex', [ref._jsInternal]);
 
     return _promiseToFuture<int>(promise);
   }
