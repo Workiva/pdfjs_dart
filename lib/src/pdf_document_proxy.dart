@@ -14,6 +14,117 @@
 
 part of pdfjs;
 
+class PageReference {
+  JsObject _jsInternal;
+
+  PageReference._withJsInternal(this._jsInternal);
+
+  int get gen => _jsInternal['gen'];
+
+  int get num => _jsInternal['num'];
+}
+
+enum DestinationType { XYZ, Fit, FitH, FitV, FitR, FitB, FitBH, FitBV }
+
+DestinationType _destinationTypeFromString(String typeString) {
+  if (typeString == 'XYZ') {
+    return DestinationType.XYZ;
+  } else if (typeString == 'Fit') {
+    return DestinationType.Fit;
+  } else if (typeString == 'FitH') {
+    return DestinationType.FitH;
+  } else if (typeString == 'FitV') {
+    return DestinationType.FitV;
+  } else if (typeString == 'FitR') {
+    return DestinationType.FitR;
+  } else if (typeString == 'FitB') {
+    return DestinationType.FitB;
+  } else if (typeString == 'FitBH') {
+    return DestinationType.FitBH;
+  } else if (typeString == 'FitBV') {
+    return DestinationType.FitBV;
+  }
+
+  return null;
+}
+
+dynamic _dartifyDestination(dynamic jsDest) {
+  if (jsDest is List) {
+    return _dartifyExplicitDestination(jsDest);
+  } else {
+    return jsDest;
+  }
+}
+
+List<dynamic> _dartifyExplicitDestination(List<dynamic> jsDest) {
+  List<dynamic> dartDest = new List<dynamic>(jsDest.length);
+
+  // The first item is always a page ref; create a strongly-typed dart object
+  // for it
+  dartDest[0] = new PageReference._withJsInternal(jsDest[0]);
+
+  // The second item is always a string specifying the action to take on
+  // selecting the outline item
+  dartDest[1] = _destinationTypeFromString(jsDest[1]);
+
+  // Copy the remaining values, which should be numbers
+  dartDest.setRange(2, jsDest.length, jsDest, 2);
+
+  return dartDest;
+}
+
+List<OutlineItem> _dartifyOutlineItemList(List<JsObject> jsItems) {
+  if (jsItems == null) {
+    return null;
+  }
+
+  List<OutlineItem> items = new List<OutlineItem>();
+  for (JsObject jsItem in jsItems) {
+    OutlineItem item = new OutlineItem._withJsInternal(jsItem);
+
+    items.add(item);
+  }
+
+  return items;
+}
+
+class OutlineItem {
+  dynamic _dest;
+  Iterable<OutlineItem> _items;
+  JsObject _jsInternal;
+
+  OutlineItem._withJsInternal(this._jsInternal) {
+    _dest = _dartifyDestination(_jsInternal['dest']);
+  }
+
+  bool get bold => _jsInternal['bold'];
+
+  Uint8List get color => _jsInternal['color'];
+
+  int get count => _jsInternal['count'];
+
+  dynamic get dest => _dest;
+
+  bool get italic => _jsInternal['italic'];
+
+  Iterable<OutlineItem> get items {
+    if (_items == null) {
+      List<OutlineItem> convertedItems =
+          _dartifyOutlineItemList(_jsInternal['items']);
+
+      convertedItems ??= [];
+
+      _items = new UnmodifiableListView(convertedItems);
+    }
+
+    return _items;
+  }
+
+  String get title => _jsInternal['title'];
+
+  String get url => _jsInternal['url'];
+}
+
 class PDFDocumentProxy {
   JsObject _jsInternal;
 

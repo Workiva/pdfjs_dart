@@ -15,6 +15,7 @@
 library pdfjs;
 
 import 'dart:async';
+import 'dart:collection';
 import 'dart:html';
 import 'dart:js';
 import 'dart:typed_data';
