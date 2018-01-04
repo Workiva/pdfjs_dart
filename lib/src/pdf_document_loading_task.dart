@@ -38,8 +38,7 @@ class PDFDocumentLoadingTask {
 
   Future<PDFDocumentProxy> get future => _future;
 
-  Future destroy() =>
-      _promiseToFuture(_jsInternal['destroy'].apply([], thisArg: _jsInternal));
+  Future destroy() => _promiseToFuture(_jsInternal.callMethod('destroy', []));
 
   Future<S> then<S>(dynamic onValue(PDFDocumentProxy value),
           {Function onError}) =>

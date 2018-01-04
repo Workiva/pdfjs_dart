@@ -50,23 +50,22 @@ class PDFPageView {
   DivElement get div => _jsInternal['div'];
 
   void cancelRendering() {
-    _jsInternal['cancelRendering'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('cancelRendering', []);
   }
 
   void destroy() {
-    _jsInternal['destroy'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('destroy', []);
   }
 
   void draw() {
-    _jsInternal['draw'].apply([], thisArg: _jsInternal);
+    _jsInternal.callMethod('draw', []);
   }
 
   void setPdfPage(PDFPageProxy pdfPage) {
-    _jsInternal['setPdfPage']
-        .apply([pdfPage._jsInternal], thisArg: _jsInternal);
+    _jsInternal.callMethod('setPdfPage', [pdfPage._jsInternal]);
   }
 
   void update(num scale, [num rotation = 0]) {
-    _jsInternal['update'].apply([scale, rotation], thisArg: _jsInternal);
+    _jsInternal.callMethod('update', [scale, rotation]);
   }
 }
