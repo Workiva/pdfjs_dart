@@ -25,6 +25,8 @@ class PDFPageView {
     num scale,
     PageViewport defaultViewport,
     PDFPageViewRenderer renderer,
+    IPDFAnnotationLayerFactory annotationLayerFactory,
+    IPDFTextLayerFactory textLayerFactory,
   }) {
     String rendererString;
     switch (renderer) {
@@ -43,6 +45,8 @@ class PDFPageView {
         'scale': scale,
         'defaultViewport': defaultViewport._jsInternal,
         'renderer': rendererString,
+        'annotationLayerFactory': annotationLayerFactory?._jsInternal,
+        'textLayerFactory': textLayerFactory?._jsInternal,
       })
     ]);
   }
