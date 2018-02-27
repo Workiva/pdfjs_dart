@@ -43,7 +43,7 @@ class PDFPageView {
         'container': container,
         'id': id,
         'scale': scale,
-        'defaultViewport': defaultViewport._jsInternal,
+        'defaultViewport': defaultViewport?._jsInternal,
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
