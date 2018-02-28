@@ -1,4 +1,4 @@
-// Copyright 2017 Workiva Inc.
+// Copyright 2018 Workiva Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@ class PDFPageView {
     num scale,
     PageViewport defaultViewport,
     PDFPageViewRenderer renderer,
+    IPDFAnnotationLayerFactory annotationLayerFactory,
+    IPDFTextLayerFactory textLayerFactory,
   }) {
     String rendererString;
     switch (renderer) {
@@ -41,8 +43,10 @@ class PDFPageView {
         'container': container,
         'id': id,
         'scale': scale,
-        'defaultViewport': defaultViewport._jsInternal,
+        'defaultViewport': defaultViewport?._jsInternal,
         'renderer': rendererString,
+        'annotationLayerFactory': annotationLayerFactory?._jsInternal,
+        'textLayerFactory': textLayerFactory?._jsInternal,
       })
     ]);
   }

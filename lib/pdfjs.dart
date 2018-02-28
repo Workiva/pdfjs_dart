@@ -1,4 +1,4 @@
-// Copyright 2017 Workiva Inc.
+// Copyright 2018 Workiva Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@ import 'dart:js';
 import 'dart:typed_data';
 
 part 'src/document_init_parameters.dart';
+part 'src/interfaces.dart';
 part 'src/pdfjs_global.dart';
 part 'src/page_viewport.dart';
 part 'src/pdf_data_range_transport.dart';
