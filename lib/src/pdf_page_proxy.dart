@@ -35,7 +35,8 @@ class PDFPageProxy {
     _jsInternal.callMethod('cleanup', []);
   }
 
-  PageViewport getViewport(num scale, {int rotation = null, bool dontFlip = null}) {
+  PageViewport getViewport(num scale,
+      {int rotation = null, bool dontFlip = null}) {
     JsObject jsViewport = _jsInternal.callMethod('getViewport', [
       new JsObject.jsify({
         'scale': scale,
