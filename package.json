@@ -1,6 +1,6 @@
 {
   "name": "pdfjs_dart",
-  "version": "1.10.90",
+  "version": "2.1.266",
   "description": "Dart bindings for Mozilla's PDF.js library",
   "repository": {
     "type": "git",
@@ -13,6 +13,6 @@
   },
   "homepage": "https://github.com/Workiva/pdfjs_dart",
   "dependencies": {
-    "pdfjs-dist": "1.10.90"
+    "pdfjs-dist": "2.1.266"
   }
 }

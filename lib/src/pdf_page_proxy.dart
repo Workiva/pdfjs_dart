@@ -18,7 +18,7 @@ class PDFPageProxy {
   JsObject _jsInternal;
 
   PDFPageProxy() {
-    _jsInternal = new JsObject(context['PDFJS']['PDFPageProxy']);
+    _jsInternal = new JsObject(context['pdfjsLib']['PDFPageProxy']);
   }
 
   PDFPageProxy._withJsInternal(this._jsInternal);
@@ -35,9 +35,15 @@ class PDFPageProxy {
     _jsInternal.callMethod('cleanup', []);
   }
 
-  PageViewport getViewport(num scale, [int rotate = null]) {
-    JsObject jsViewport =
-        _jsInternal.callMethod('getViewport', [scale, rotate]);
+  PageViewport getViewport(num scale,
+      {int rotation = null, bool dontFlip = null}) {
+    JsObject jsViewport = _jsInternal.callMethod('getViewport', [
+      new JsObject.jsify({
+        'scale': scale,
+        'rotation': rotation,
+        'dontFlip': dontFlip,
+      })
+    ]);
 
     return new PageViewport._withJsInternal(jsViewport);
   }
