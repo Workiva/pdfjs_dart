@@ -88,8 +88,8 @@ abstract class IPDFAnnotationLayerFactory {
   AnnotationLayerBuilder createAnnotationLayerBuilder(
     DivElement pageDiv,
     PDFPageProxy pdfPage, {
-    IL10n l10n: null,
-    bool renderInteractiveForms: false,
+    IL10n l10n = null,
+    bool renderInteractiveForms = false,
   });
 }
 
@@ -117,8 +117,8 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
   AnnotationLayerBuilder createAnnotationLayerBuilder(
     DivElement pageDiv,
     PDFPageProxy pdfPage, {
-    IL10n l10n: null,
-    bool renderInteractiveForms: false,
+    IL10n l10n = null,
+    bool renderInteractiveForms = false,
   }) {
     JsObject jsAnnotationLayerBuilder = _jsInternal.callMethod(
         'createAnnotationLayerBuilder', [
