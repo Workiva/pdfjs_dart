@@ -25,7 +25,7 @@ class DocumentInitParameters {
   PDFDataRangeTransport _range;
 
   DocumentInitParameters() {
-    _jsInternal = new JsObject.jsify({});
+    _jsInternal = JsObject.jsify({});
   }
 
   TypedData get data => _jsInternal['data'];
@@ -113,10 +113,10 @@ class DocumentInitParameters {
   ];
 
   static Map<String, NativeImageDecoderSupport>
-      _nativeImageDecoderSupportPdfjsToDart = new Map.fromIterables(
+      _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
           _pdfjsNativeImageDecoderSupport, _dartNativeImageDecoderSupport);
 
   static Map<NativeImageDecoderSupport, String>
-      _nativeImageDecoderSupportDartToPdfjs = new Map.fromIterables(
+      _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
           _dartNativeImageDecoderSupport, _pdfjsNativeImageDecoderSupport);
 }

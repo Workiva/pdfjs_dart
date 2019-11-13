@@ -141,7 +141,7 @@ class PDFJS {
   static PDFDocumentLoadingTask getDocument(dynamic src) {
     JsObject documentTask = _pdfjsContext.callMethod('getDocument', [src]);
 
-    return new PDFDocumentLoadingTask._withJsInternal(documentTask);
+    return PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
 
   static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(
@@ -185,10 +185,10 @@ class PDFJS {
   ];
 
   static Map<int, VERBOSITY_LEVELS> _verbosityLevelsPdfjsToDart =
-      new Map.fromIterables(_pdfjsVerbosityLevels, _dartVerbosityLevels);
+      Map.fromIterables(_pdfjsVerbosityLevels, _dartVerbosityLevels);
 
   static Map<VERBOSITY_LEVELS, int> _verbosityLevelsDartToPdfjs =
-      new Map.fromIterables(_dartVerbosityLevels, _pdfjsVerbosityLevels);
+      Map.fromIterables(_dartVerbosityLevels, _pdfjsVerbosityLevels);
 
   // FOOTGUN: Both this list and the following list must be kept in
   // corresponding order
@@ -211,8 +211,8 @@ class PDFJS {
   ];
 
   static Map<int, LinkTarget> _linkTargetPdfjsToDart =
-      new Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
+      Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
 
   static Map<LinkTarget, int> _linkTargetDartToPdfjs =
-      new Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
+      Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
 }

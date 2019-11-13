@@ -38,8 +38,8 @@ class PDFPageView {
         break;
     }
 
-    _jsInternal = new JsObject(context['pdfjsViewer']['PDFPageView'], [
-      new JsObject.jsify({
+    _jsInternal = JsObject(context['pdfjsViewer']['PDFPageView'], [
+      JsObject.jsify({
         'container': container,
         'id': id,
         'scale': scale,

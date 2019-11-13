@@ -64,11 +64,11 @@ dynamic _dartifyDestination(dynamic jsDest) {
 }
 
 List<dynamic> _dartifyExplicitDestination(List<dynamic> jsDest) {
-  List<dynamic> dartDest = new List<dynamic>(jsDest.length);
+  List<dynamic> dartDest = List<dynamic>(jsDest.length);
 
   // The first item is always a page ref; create a strongly-typed dart object
   // for it
-  dartDest[0] = new PageReference._withJsInternal(jsDest[0]);
+  dartDest[0] = PageReference._withJsInternal(jsDest[0]);
 
   // The second item is either a string or name object specifying the action to
   // take on selecting the outline item
@@ -85,9 +85,9 @@ List<OutlineItem> _dartifyOutlineItemList(List<JsObject> jsItems) {
     return null;
   }
 
-  List<OutlineItem> items = new List<OutlineItem>();
+  List<OutlineItem> items = List<OutlineItem>();
   for (JsObject jsItem in jsItems) {
-    OutlineItem item = new OutlineItem._withJsInternal(jsItem);
+    OutlineItem item = OutlineItem._withJsInternal(jsItem);
 
     items.add(item);
   }
@@ -121,7 +121,7 @@ class OutlineItem {
 
       convertedItems ??= [];
 
-      _items = new UnmodifiableListView(convertedItems);
+      _items = UnmodifiableListView(convertedItems);
     }
 
     return _items;
@@ -136,7 +136,7 @@ class PDFDocumentProxy {
   JsObject _jsInternal;
 
   PDFDocumentProxy() {
-    _jsInternal = new JsObject(context['pdfjsLib']['PDFDocumentProxy']);
+    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentProxy']);
   }
 
   PDFDocumentProxy._withJsInternal(this._jsInternal);
@@ -183,7 +183,7 @@ class PDFDocumentProxy {
     JsObject promise = _jsInternal.callMethod('getPage', [pageNumber]);
 
     return _promiseToFuture<PDFPageProxy>(promise,
-        transform: (value) => new PDFPageProxy._withJsInternal(value));
+        transform: (value) => PDFPageProxy._withJsInternal(value));
   }
 
   Future<int> getPageIndex(PageReference ref) {
