@@ -1,9 +1,16 @@
 language: dart
-dart:
-  - 1.24.2
-  - 2.0.0
-script:
-  - npm install
-  - pub get
-  - dartfmt -n --set-exit-if-changed lib
-  - dartanalyzer lib
+
+jobs:
+  include:
+    - dart: 2.4.0
+      name: "SDK: 2.4.0"
+      script:
+        - dartanalyzer .
+    - dart: stable
+      name: "SDK: stable"
+      script:
+        - dartanalyzer .
+        - dartfmt -n --set-exit-if-changed .
+      name: "SDK: dev"
+      script:
+        - dartanalyzer .
