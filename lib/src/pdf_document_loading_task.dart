@@ -19,7 +19,7 @@ class PDFDocumentLoadingTask {
   JsObject _jsInternal;
 
   PDFDocumentLoadingTask() {
-    _jsInternal = new JsObject(context['pdfjsLib']['PDFDocumentLoadingTask']);
+    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentLoadingTask']);
     _initFuture();
   }
 
@@ -29,7 +29,7 @@ class PDFDocumentLoadingTask {
 
   void _initFuture() {
     _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal['promise'],
-        transform: (value) => new PDFDocumentProxy._withJsInternal(value));
+        transform: (value) => PDFDocumentProxy._withJsInternal(value));
   }
 
   bool get destroyed => _jsInternal['destroyed'];

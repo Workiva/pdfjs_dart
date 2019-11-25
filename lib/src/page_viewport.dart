@@ -18,7 +18,7 @@ class PageViewport {
   JsObject _jsInternal;
 
   PageViewport() {
-    _jsInternal = new JsObject(context['pdfjsLib']['PageViewport']);
+    _jsInternal = JsObject(context['pdfjsLib']['PageViewport']);
   }
 
   PageViewport._withJsInternal(this._jsInternal);
@@ -26,6 +26,6 @@ class PageViewport {
   PageViewport clone({num rotation, num scale}) {
     JsObject viewport = _jsInternal.callMethod('clone', []);
 
-    return new PageViewport._withJsInternal(viewport);
+    return PageViewport._withJsInternal(viewport);
   }
 }

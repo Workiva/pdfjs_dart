@@ -1,5 +1,4 @@
 # Dart
-.pub/
 .packages
 pubspec.lock
 
