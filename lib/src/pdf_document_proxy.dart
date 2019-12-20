@@ -136,7 +136,7 @@ class PDFDocumentProxy {
   JsObject _jsInternal;
 
   PDFDocumentProxy() {
-    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentProxy']);
+    _jsInternal = JsObject(context['PDFJS']['PDFDocumentProxy']);
   }
 
   PDFDocumentProxy._withJsInternal(this._jsInternal);

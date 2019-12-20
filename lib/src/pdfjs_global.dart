@@ -29,7 +29,7 @@ enum VERBOSITY_LEVELS {
 }
 
 class PDFJS {
-  static final JsObject _pdfjsContext = context['pdfjsLib'];
+  static final JsObject _pdfjsContext = context['PDFJS'];
 
   static bool get cMapPacked => _pdfjsContext['cMapPacked'];
   static set cMapPacked(bool cMapPacked) {

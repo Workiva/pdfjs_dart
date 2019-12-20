@@ -18,7 +18,7 @@ class PageViewport {
   JsObject _jsInternal;
 
   PageViewport() {
-    _jsInternal = JsObject(context['pdfjsLib']['PageViewport']);
+    _jsInternal = JsObject(context['PDFJS']['PageViewport']);
   }
 
   PageViewport._withJsInternal(this._jsInternal);

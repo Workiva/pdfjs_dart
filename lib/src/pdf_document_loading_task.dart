@@ -19,7 +19,7 @@ class PDFDocumentLoadingTask {
   JsObject _jsInternal;
 
   PDFDocumentLoadingTask() {
-    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentLoadingTask']);
+    _jsInternal = JsObject(context['PDFJS']['PDFDocumentLoadingTask']);
     _initFuture();
   }
 
