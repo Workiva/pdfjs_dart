@@ -7,3 +7,7 @@ homepage: https://github.com/Workiva/pdfjs_dart
 
 environment:
   sdk: '>=2.4.0 <3.0.0'
+
+
+dev_dependencies:
+  dart_dev: ^2.2.0

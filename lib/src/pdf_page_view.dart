@@ -39,7 +39,7 @@ class PDFPageView {
     }
 
 
-    _jsInternal = JsObject(context['PDFJS']['PDFPageView'], [
+    _jsInternal = JsObject(context['PDFJS']['PDFPageView'] as JsFunction, [
       JsObject.jsify({
         'container': container,
         'id': id,
@@ -52,7 +52,7 @@ class PDFPageView {
     ]);
   }
 
-  DivElement get div => _jsInternal['div'];
+  DivElement get div => _jsInternal['div'] as DivElement;
 
   void cancelRendering() {
     _jsInternal.callMethod('cancelRendering', []);

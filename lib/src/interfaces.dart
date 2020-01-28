@@ -30,7 +30,7 @@ class AnnotationLayerBuilderOptions {
     _l10n = l10n;
   }
 
-  DivElement get pageDiv => _jsInternal['pageDiv'];
+  DivElement get pageDiv => _jsInternal['pageDiv'] as DivElement;
   set pageDiv(DivElement pageDiv) {
     _jsInternal['pageDiv'] = pageDiv;
   }
@@ -42,7 +42,7 @@ class AnnotationLayerBuilderOptions {
     _pdfPage = pdfPage;
   }
 
-  bool get renderInteractiveForms => _jsInternal['renderInteractiveForms'];
+  bool get renderInteractiveForms => _jsInternal['renderInteractiveForms'] as bool;
   set renderInteractiveForms(bool renderInteractiveForms) {
     _jsInternal['renderInteractiveForms'] = renderInteractiveForms;
   }
@@ -54,7 +54,7 @@ class AnnotationLayerBuilder {
   JsObject _jsInternal;
 
   AnnotationLayerBuilder(AnnotationLayerBuilderOptions options) {
-    _jsInternal = JsObject(context['PDFJS']['AnnotationLayerBuilder'], [
+    _jsInternal = JsObject(context['PDFJS']['AnnotationLayerBuilder'] as JsFunction, [
       options,
     ]);
   }
@@ -100,7 +100,7 @@ class DefaultTextLayerFactory implements IPDFTextLayerFactory {
   JsObject _jsInternal;
 
   DefaultTextLayerFactory() {
-    _jsInternal = JsObject(context['PDFJS']['DefaultTextLayerFactory'], []);
+    _jsInternal = JsObject(context['PDFJS']['DefaultTextLayerFactory'] as JsFunction, []);
   }
 }
 
@@ -108,7 +108,7 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
   JsObject _jsInternal;
 
   DefaultAnnotationLayerFactory() {
-    _jsInternal = JsObject(context['PDFJS']['DefaultAnnotationLayerFactory'], []);
+    _jsInternal = JsObject(context['PDFJS']['DefaultAnnotationLayerFactory'] as JsFunction, []);
   }
 
   AnnotationLayerBuilder createAnnotationLayerBuilder(
@@ -123,7 +123,7 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
       pdfPage._jsInternal,
       renderInteractiveForms,
       l10n?._jsInternal
-    ]);
+    ]) as JsObject;
 
     return AnnotationLayerBuilder._withJsInternal(jsAnnotationLayerBuilder);
   }
@@ -145,20 +145,20 @@ class _JsIL10n implements IL10n {
   _JsIL10n._withJsInternal(this._jsInternal);
 
   Future<String> getDirection() {
-    JsObject promise = _jsInternal.callMethod('getDirection', []);
+    JsObject promise = _jsInternal.callMethod('getDirection', []) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }
 
   Future<String> get(String key, Map args, String fallback) {
     JsObject promise =
-        _jsInternal.callMethod('get', [key, JsObject.jsify(args), fallback]);
+        _jsInternal.callMethod('get', [key, JsObject.jsify(args), fallback]) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }
 
   Future<Null> translate(HtmlElement element) {
-    JsObject promise = _jsInternal.callMethod('translate', [element]);
+    JsObject promise = _jsInternal.callMethod('translate', [element]) as JsObject;
 
     return _promiseToFuture<Null>(promise);
   }
