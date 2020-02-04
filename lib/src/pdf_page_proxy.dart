@@ -29,7 +29,7 @@ class PDFPageProxy {
 
   num get userUnit => _jsInternal['userUnit'] as num;
 
-  List<num> get view => _jsInternal['view'] as List<num>;
+  JsArray<dynamic> get view => _jsInternal['view'] as JsArray<dynamic>;
 
   void cleanup() {
     _jsInternal.callMethod('cleanup', []);
