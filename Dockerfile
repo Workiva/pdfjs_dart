@@ -13,5 +13,9 @@ RUN npm install
 RUN mkdir /audit/
 ARG BUILD_ARTIFACTS_AUDIT=/audit/*
 
+# create cdn artifact
+RUN cd /build/lib && tar -cvzf /assets.tar.gz assets
+ARG BUILD_ARTIFACTS_CDN=/assets.tar.gz
+
 RUN npm ls -s --json --depth=10 > /audit/npm.lock || [ $? -eq 1 ] || exit
 FROM scratch
