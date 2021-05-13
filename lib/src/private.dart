@@ -15,7 +15,7 @@
 part of pdfjs;
 
 Future<S> _promiseToFuture<S>(JsObject promise, {Function transform}) {
-  Completer completer = Completer();
+  Completer<S> completer = Completer();
 
   dynamic valueToDart(dynamic value) {
     if (transform != null) {

@@ -1,0 +1,14 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "pdfjs",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    }
+  ],
+  "generated": "2021-05-13T15:24:35.787131Z",
+  "generator": "pub",
+  "generatorVersion": "2.7.2"
+}
