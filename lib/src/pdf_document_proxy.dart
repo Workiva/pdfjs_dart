@@ -19,9 +19,9 @@ class PageReference {
 
   PageReference._withJsInternal(this._jsInternal);
 
-  int get gen => _jsInternal['gen'];
+  int get gen => _jsInternal['gen'] as int;
 
-  int get num => _jsInternal['num'];
+  int get num => _jsInternal['num'] as int;
 }
 
 enum DestinationType { XYZ, Fit, FitH, FitV, FitR, FitB, FitBH, FitBV }
@@ -29,7 +29,7 @@ enum DestinationType { XYZ, Fit, FitH, FitV, FitR, FitB, FitBH, FitBV }
 DestinationType _destinationTypeFromName(dynamic jsType) {
   String typeString;
   if (jsType is JsObject) {
-    typeString = jsType['name'];
+    typeString = jsType['name'] as String;
   } else if (jsType is String) {
     typeString = jsType;
   }
@@ -68,7 +68,7 @@ List<dynamic> _dartifyExplicitDestination(List<dynamic> jsDest) {
 
   // The first item is always a page ref; create a strongly-typed dart object
   // for it
-  dartDest[0] = PageReference._withJsInternal(jsDest[0]);
+  dartDest[0] = PageReference._withJsInternal(jsDest[0] as JsObject);
 
   // The second item is either a string or name object specifying the action to
   // take on selecting the outline item
@@ -104,20 +104,19 @@ class OutlineItem {
     _dest = _dartifyDestination(_jsInternal['dest']);
   }
 
-  bool get bold => _jsInternal['bold'];
+  bool get bold => _jsInternal['bold'] as bool;
 
-  Uint8List get color => _jsInternal['color'];
+  Uint8List get color => _jsInternal['color'] as Uint8List;
 
-  int get count => _jsInternal['count'];
+  int get count => _jsInternal['count'] as int;
 
   dynamic get dest => _dest;
 
-  bool get italic => _jsInternal['italic'];
+  bool get italic => _jsInternal['italic'] as bool;
 
   Iterable<OutlineItem> get items {
     if (_items == null) {
-      List<OutlineItem> convertedItems =
-          _dartifyOutlineItemList(_jsInternal['items']);
+      List<OutlineItem> convertedItems = _dartifyOutlineItemList(_jsInternal['items'] as List<JsObject>);
 
       convertedItems ??= [];
 
@@ -127,23 +126,23 @@ class OutlineItem {
     return _items;
   }
 
-  String get title => _jsInternal['title'];
+  String get title => _jsInternal['title'] as String;
 
-  String get url => _jsInternal['url'];
+  String get url => _jsInternal['url'] as String;
 }
 
 class PDFDocumentProxy {
   JsObject _jsInternal;
 
   PDFDocumentProxy() {
-    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentProxy']);
+    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentProxy'] as JsFunction);
   }
 
   PDFDocumentProxy._withJsInternal(this._jsInternal);
 
-  String get fingerprint => _jsInternal['fingerprint'];
+  String get fingerprint => _jsInternal['fingerprint'] as String;
 
-  int get numPages => _jsInternal['numPages'];
+  int get numPages => _jsInternal['numPages'] as int;
 
   void cleanup() {
     _jsInternal.callMethod('cleanup', []);
@@ -154,47 +153,45 @@ class PDFDocumentProxy {
   }
 
   Future<TypedData> getData() {
-    JsObject promise = _jsInternal.callMethod('getData', []);
+    JsObject promise = _jsInternal.callMethod('getData', []) as JsObject;
 
     return _promiseToFuture<TypedData>(promise);
   }
 
   Future<List<dynamic>> getDestination(String id) {
-    JsObject promise = _jsInternal.callMethod('getDestination', [id]);
+    JsObject promise = _jsInternal.callMethod('getDestination', [id]) as JsObject;
 
-    return _promiseToFuture<List<dynamic>>(promise,
-        transform: (value) => _dartifyExplicitDestination(value));
+    return _promiseToFuture<List<dynamic>>(promise, transform: (value) => _dartifyExplicitDestination(value as List));
   }
 
   Future<List<String>> getJavaScript() {
-    JsObject promise = _jsInternal.callMethod('getJavaScript', []);
+    JsObject promise = _jsInternal.callMethod('getJavaScript', []) as JsObject;
 
     return _promiseToFuture<List<String>>(promise);
   }
 
   Future<List<OutlineItem>> getOutline() {
-    JsObject promise = _jsInternal.callMethod('getOutline', []);
+    JsObject promise = _jsInternal.callMethod('getOutline', []) as JsObject;
 
     return _promiseToFuture<List<OutlineItem>>(promise,
-        transform: (value) => _dartifyOutlineItemList(value));
+        transform: (value) => _dartifyOutlineItemList(value as List<JsObject>));
   }
 
   Future<PDFPageProxy> getPage(int pageNumber) {
-    JsObject promise = _jsInternal.callMethod('getPage', [pageNumber]);
+    JsObject promise = _jsInternal.callMethod('getPage', [pageNumber]) as JsObject;
 
     return _promiseToFuture<PDFPageProxy>(promise,
-        transform: (value) => PDFPageProxy._withJsInternal(value));
+        transform: (value) => PDFPageProxy._withJsInternal(value as JsObject));
   }
 
   Future<int> getPageIndex(PageReference ref) {
-    JsObject promise =
-        _jsInternal.callMethod('getPageIndex', [ref._jsInternal]);
+    JsObject promise = _jsInternal.callMethod('getPageIndex', [ref._jsInternal]) as JsObject;
 
     return _promiseToFuture<int>(promise);
   }
 
   Future<String> getPageMode() {
-    JsObject promise = _jsInternal.callMethod('getPageMode', []);
+    JsObject promise = _jsInternal.callMethod('getPageMode', []) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }

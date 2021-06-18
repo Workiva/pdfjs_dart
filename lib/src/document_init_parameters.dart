@@ -28,27 +28,27 @@ class DocumentInitParameters {
     _jsInternal = JsObject.jsify({});
   }
 
-  TypedData get data => _jsInternal['data'];
+  TypedData get data => _jsInternal['data'] as TypedData;
   set data(TypedData data) {
     _jsInternal['data'] = data;
   }
 
-  String get docBaseUrl => _jsInternal['docBaseUrl'];
+  String get docBaseUrl => _jsInternal['docBaseUrl'] as String;
   set docBaseUrl(String docBaseUrl) {
     _jsInternal['docBaseUrl'] = docBaseUrl;
   }
 
-  TypedData get initialData => _jsInternal['initialData'];
+  TypedData get initialData => _jsInternal['initialData'] as TypedData;
   set initialData(TypedData initialData) {
     _jsInternal['initialData'] = initialData;
   }
 
-  Map<String, dynamic> get httpHeaders => _jsInternal['httpHeaders'];
+  Map<String, dynamic> get httpHeaders => _jsInternal['httpHeaders'] as Map<String, dynamic>;
   set httpHeaders(Map<String, dynamic> httpHeaders) {
     _jsInternal['httpHeaders'] = httpHeaders;
   }
 
-  int get length => _jsInternal['length'];
+  int get length => _jsInternal['length'] as int;
   set length(int length) {
     _jsInternal['length'] = length;
   }
@@ -62,7 +62,7 @@ class DocumentInitParameters {
         _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
   }
 
-  String get password => _jsInternal['password'];
+  String get password => _jsInternal['password'] as String;
   set password(String password) {
     _jsInternal['password'] = password;
   }
@@ -76,22 +76,22 @@ class DocumentInitParameters {
     _range = range;
   }
 
-  int get rangeChunkSize => _jsInternal['rangeChunkSize'];
+  int get rangeChunkSize => _jsInternal['rangeChunkSize'] as int;
   set rangeChunkSize(int rangeChunkSize) {
     _jsInternal['rangeChunkSize'] = rangeChunkSize;
   }
 
-  bool get stopAtErrors => _jsInternal['stopAtErrors'];
+  bool get stopAtErrors => _jsInternal['stopAtErrors'] as bool;
   set stopAtErrors(bool stopAtErrors) {
     _jsInternal['stopAtErrors'] = stopAtErrors;
   }
 
-  String get url => _jsInternal['url'];
+  String get url => _jsInternal['url'] as String;
   set url(String url) {
     _jsInternal['url'] = url;
   }
 
-  bool get withCredentials => _jsInternal['withCredentials'];
+  bool get withCredentials => _jsInternal['withCredentials'] as bool;
   set withCredentials(bool withCredentials) {
     _jsInternal['withCredentials'] = withCredentials;
   }
