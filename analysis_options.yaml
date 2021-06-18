@@ -1,4 +1,7 @@
-# analysis_options.yaml docs: https://www.dartlang.org/guides/language/analysis-options 
+# analysis_options.yaml docs: https://www.dartlang.org/guides/language/analysis-options
+analyzer:
+  strong-mode:
+    implicit-casts: false
 
 # ALL lint rules are included. Unused lints should be commented
 # out with a reason. An up to date list of all options is here
