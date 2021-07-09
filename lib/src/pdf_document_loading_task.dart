@@ -19,7 +19,7 @@ class PDFDocumentLoadingTask {
   JsObject _jsInternal;
 
   PDFDocumentLoadingTask() {
-    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentLoadingTask']);
+    _jsInternal = JsObject(context['pdfjsLib']['PDFDocumentLoadingTask'] as JsFunction);
     _initFuture();
   }
 
@@ -28,19 +28,18 @@ class PDFDocumentLoadingTask {
   }
 
   void _initFuture() {
-    _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal['promise'],
-        transform: (value) => PDFDocumentProxy._withJsInternal(value));
+    _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal['promise'] as JsObject,
+        transform: (value) => PDFDocumentProxy._withJsInternal(value as JsObject));
   }
 
-  bool get destroyed => _jsInternal['destroyed'];
+  bool get destroyed => _jsInternal['destroyed'] as bool;
 
-  String get docId => _jsInternal['docId'];
+  String get docId => _jsInternal['docId'] as String;
 
   Future<PDFDocumentProxy> get future => _future;
 
-  Future destroy() => _promiseToFuture(_jsInternal.callMethod('destroy', []));
+  Future destroy() => _promiseToFuture(_jsInternal.callMethod('destroy', []) as JsObject);
 
-  Future<S> then<S>(dynamic onValue(PDFDocumentProxy value),
-          {Function onError}) =>
+  Future<S> then<S>(FutureOr<S> onValue(PDFDocumentProxy value), {Function onError}) =>
       _future.then(onValue, onError: onError);
 }
