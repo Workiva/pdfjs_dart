@@ -38,8 +38,8 @@ class PDFPageView {
         break;
     }
 
-    _jsInternal = new JsObject(context['PDFJS']['PDFPageView'], [
-      new JsObject.jsify({
+    _jsInternal = JsObject(context['pdfjsViewer']['PDFPageView'] as JsFunction, [
+      JsObject.jsify({
         'container': container,
         'id': id,
         'scale': scale,
@@ -47,11 +47,12 @@ class PDFPageView {
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
+        'eventBus': JsObject(context['pdfjsViewer']['EventBus'] as JsFunction),
       })
     ]);
   }
 
-  DivElement get div => _jsInternal['div'];
+  DivElement get div => _jsInternal['div'] as DivElement;
 
   void cancelRendering() {
     _jsInternal.callMethod('cancelRendering', []);

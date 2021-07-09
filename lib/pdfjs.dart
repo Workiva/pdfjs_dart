@@ -20,6 +20,8 @@ import 'dart:html';
 import 'dart:js';
 import 'dart:typed_data';
 
+import 'package:quiver/check.dart';
+
 part 'src/document_init_parameters.dart';
 part 'src/interfaces.dart';
 part 'src/pdfjs_global.dart';

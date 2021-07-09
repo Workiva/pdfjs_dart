@@ -18,7 +18,7 @@ abstract class PDFDataRangeTransport {
   JsObject _jsInternal;
 
   PDFDataRangeTransport(int length, Uint8List initialData) {
-    _jsInternal = new JsObject(context['PDFJS']['PDFDataRangeTransport'], [
+    _jsInternal = JsObject(context['pdfjsLib']['PDFDataRangeTransport'] as JsFunction, [
       length,
       initialData,
     ]);

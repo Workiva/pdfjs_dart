@@ -20,7 +20,7 @@ class AnnotationLayerBuilderOptions {
   PDFPageProxy _pdfPage;
 
   AnnotationLayerBuilderOptions() {
-    _jsInternal = new JsObject.jsify({});
+    _jsInternal = JsObject.jsify({});
   }
 
   IL10n get l10n => _l10n;
@@ -30,7 +30,7 @@ class AnnotationLayerBuilderOptions {
     _l10n = l10n;
   }
 
-  DivElement get pageDiv => _jsInternal['pageDiv'];
+  DivElement get pageDiv => _jsInternal['pageDiv'] as DivElement;
   set pageDiv(DivElement pageDiv) {
     _jsInternal['pageDiv'] = pageDiv;
   }
@@ -42,7 +42,7 @@ class AnnotationLayerBuilderOptions {
     _pdfPage = pdfPage;
   }
 
-  bool get renderInteractiveForms => _jsInternal['renderInteractiveForms'];
+  bool get renderInteractiveForms => _jsInternal['renderInteractiveForms'] as bool;
   set renderInteractiveForms(bool renderInteractiveForms) {
     _jsInternal['renderInteractiveForms'] = renderInteractiveForms;
   }
@@ -54,7 +54,7 @@ class AnnotationLayerBuilder {
   JsObject _jsInternal;
 
   AnnotationLayerBuilder(AnnotationLayerBuilderOptions options) {
-    _jsInternal = new JsObject(context['PDFJS']['AnnotationLayerBuilder'], [
+    _jsInternal = JsObject(context['pdfjsViewer']['AnnotationLayerBuilder'] as JsFunction, [
       options,
     ]);
   }
@@ -71,14 +71,16 @@ abstract class IPDFAnnotationLayerFactory {
 
   IPDFAnnotationLayerFactory() {
     _jsInternal['createAnnotationLayerBuilder'] =
-        (DivElement pageDiv, JsObject jsPdfPage,
-            [bool renderInteractiveForms, JsObject jsL10n]) {
-      PDFPageProxy pdfPage = new PDFPageProxy._withJsInternal(jsPdfPage);
-      IL10n l10n = new _JsIL10n._withJsInternal(jsL10n);
+        (DivElement pageDiv, JsObject jsPdfPage, [bool renderInteractiveForms, JsObject jsL10n]) {
+      PDFPageProxy pdfPage = PDFPageProxy._withJsInternal(jsPdfPage);
+      IL10n l10n = _JsIL10n._withJsInternal(jsL10n);
 
-      AnnotationLayerBuilder annotationLayerBuilder =
-          createAnnotationLayerBuilder(pageDiv, pdfPage,
-              l10n: l10n, renderInteractiveForms: renderInteractiveForms);
+      AnnotationLayerBuilder annotationLayerBuilder = createAnnotationLayerBuilder(
+        pageDiv,
+        pdfPage,
+        l10n: l10n,
+        renderInteractiveForms: renderInteractiveForms,
+      );
 
       return annotationLayerBuilder._jsInternal;
     };
@@ -87,8 +89,8 @@ abstract class IPDFAnnotationLayerFactory {
   AnnotationLayerBuilder createAnnotationLayerBuilder(
     DivElement pageDiv,
     PDFPageProxy pdfPage, {
-    IL10n l10n: null,
-    bool renderInteractiveForms: false,
+    IL10n l10n = null,
+    bool renderInteractiveForms = false,
   });
 }
 
@@ -100,7 +102,7 @@ class DefaultTextLayerFactory implements IPDFTextLayerFactory {
   JsObject _jsInternal;
 
   DefaultTextLayerFactory() {
-    _jsInternal = new JsObject(context['PDFJS']['DefaultTextLayerFactory'], []);
+    _jsInternal = JsObject(context['pdfjsViewer']['DefaultTextLayerFactory'] as JsFunction, []);
   }
 }
 
@@ -108,25 +110,20 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
   JsObject _jsInternal;
 
   DefaultAnnotationLayerFactory() {
-    _jsInternal =
-        new JsObject(context['PDFJS']['DefaultAnnotationLayerFactory'], []);
+    _jsInternal = JsObject(context['pdfjsViewer']['DefaultAnnotationLayerFactory'] as JsFunction, []);
   }
 
   AnnotationLayerBuilder createAnnotationLayerBuilder(
     DivElement pageDiv,
     PDFPageProxy pdfPage, {
-    IL10n l10n: null,
-    bool renderInteractiveForms: false,
+    IL10n l10n = null,
+    bool renderInteractiveForms = false,
   }) {
     JsObject jsAnnotationLayerBuilder = _jsInternal.callMethod(
-        'createAnnotationLayerBuilder', [
-      pageDiv,
-      pdfPage._jsInternal,
-      renderInteractiveForms,
-      l10n?._jsInternal
-    ]);
+            'createAnnotationLayerBuilder', [pageDiv, pdfPage._jsInternal, renderInteractiveForms, l10n?._jsInternal])
+        as JsObject;
 
-    return new AnnotationLayerBuilder._withJsInternal(jsAnnotationLayerBuilder);
+    return AnnotationLayerBuilder._withJsInternal(jsAnnotationLayerBuilder);
   }
 }
 
@@ -146,20 +143,19 @@ class _JsIL10n implements IL10n {
   _JsIL10n._withJsInternal(this._jsInternal);
 
   Future<String> getDirection() {
-    JsObject promise = _jsInternal.callMethod('getDirection', []);
+    JsObject promise = _jsInternal.callMethod('getDirection', []) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }
 
   Future<String> get(String key, Map args, String fallback) {
-    JsObject promise = _jsInternal
-        .callMethod('get', [key, new JsObject.jsify(args), fallback]);
+    JsObject promise = _jsInternal.callMethod('get', [key, JsObject.jsify(args), fallback]) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }
 
   Future<Null> translate(HtmlElement element) {
-    JsObject promise = _jsInternal.callMethod('translate', [element]);
+    JsObject promise = _jsInternal.callMethod('translate', [element]) as JsObject;
 
     return _promiseToFuture<Null>(promise);
   }
