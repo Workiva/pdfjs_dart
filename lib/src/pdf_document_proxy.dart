@@ -174,7 +174,11 @@ class PDFDocumentProxy {
     JsObject promise = _jsInternal.callMethod('getOutline', []) as JsObject;
 
     return _promiseToFuture<List<OutlineItem>>(promise,
-        transform: (value) => _dartifyOutlineItemList(value as List<JsObject>));
+        transform: (value) {
+      if (value is List<JsObject>) {
+        _dartifyOutlineItemList(value as List<JsObject>);
+      }
+    });
   }
 
   Future<PDFPageProxy> getPage(int pageNumber) {
