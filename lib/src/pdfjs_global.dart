@@ -29,108 +29,104 @@ enum VERBOSITY_LEVELS {
 }
 
 class PDFJS {
-  static final JsObject _pdfjsContext = context['pdfjsLib'];
+  static final JsObject _pdfjsContext = context['pdfjsLib'] as JsObject;
 
-  static bool get cMapPacked => _pdfjsContext['cMapPacked'];
+  static bool get cMapPacked => _pdfjsContext['cMapPacked'] as bool;
   static set cMapPacked(bool cMapPacked) {
     _pdfjsContext['cMapPacked'] = cMapPacked;
   }
 
-  static String get cMapUrl => _pdfjsContext['cMapUrl'];
+  static String get cMapUrl => _pdfjsContext['cMapUrl'] as String;
   static set cMapUrl(String cMapUrl) {
     _pdfjsContext['cMapUrl'] = cMapUrl;
   }
 
-  static bool get disableAutoFetch => _pdfjsContext['disableAutoFetch'];
+  static bool get disableAutoFetch => _pdfjsContext['disableAutoFetch'] as bool;
   static set disableAutoFetch(bool disableAutoFetch) {
     _pdfjsContext['disableAutoFetch'] = disableAutoFetch;
   }
 
-  static bool get disableCreateObjectURL =>
-      _pdfjsContext['disableCreateObjectURL'];
+  static bool get disableCreateObjectURL => _pdfjsContext['disableCreateObjectURL'] as bool;
   static set disableCreateObjectURL(bool disableCreateObjectURL) {
     _pdfjsContext['disableCreateObjectURL'] = disableCreateObjectURL;
   }
 
-  static bool get disableFontFace => _pdfjsContext['disableFontFace'];
+  static bool get disableFontFace => _pdfjsContext['disableFontFace'] as bool;
   static set disableFontFace(bool disableFontFace) {
     _pdfjsContext['disableFontFace'] = disableFontFace;
   }
 
-  static bool get disableRange => _pdfjsContext['disableRange'];
+  static bool get disableRange => _pdfjsContext['disableRange'] as bool;
   static set disableRange(bool disableRange) {
     _pdfjsContext['disableRange'] = disableRange;
   }
 
-  static bool get disableStream => _pdfjsContext['disableStream'];
+  static bool get disableStream => _pdfjsContext['disableStream'] as bool;
   static set disableStream(bool disableStream) {
     _pdfjsContext['disableStream'] = disableStream;
   }
 
-  static bool get disableWebGL => _pdfjsContext['disableWebGL'];
+  static bool get disableWebGL => _pdfjsContext['disableWebGL'] as bool;
   static set disableWebGL(bool disableWebGL) {
     _pdfjsContext['disableWebGL'] = disableWebGL;
   }
 
-  static bool get disableWorker => _pdfjsContext['disableWorker'];
+  static bool get disableWorker => _pdfjsContext['disableWorker'] as bool;
   static set disableWorker(bool disableWorker) {
     _pdfjsContext['disableWorker'] = disableWorker;
   }
 
-  static String get externalLinkRel => _pdfjsContext['externalLinkRel'];
+  static String get externalLinkRel => _pdfjsContext['externalLinkRel'] as String;
   static set externalLinkRel(String externalLinkRel) {
     _pdfjsContext['externalLinkRel'] = externalLinkRel;
   }
 
-  static LinkTarget get externalLinkTarget =>
-      _linkTargetPdfjsToDart[_pdfjsContext['externalLinkTarget']];
+  static LinkTarget get externalLinkTarget => _linkTargetPdfjsToDart[_pdfjsContext['externalLinkTarget']];
   static set externalLinkTarget(LinkTarget externalLinkTarget) {
-    _pdfjsContext['externalLinkTarget'] =
-        _linkTargetDartToPdfjs[externalLinkTarget];
+    _pdfjsContext['externalLinkTarget'] = _linkTargetDartToPdfjs[externalLinkTarget];
   }
 
-  static String get imageResourcesPath => _pdfjsContext['imageResourcesPath'];
+  static String get imageResourcesPath => _pdfjsContext['imageResourcesPath'] as String;
   static set imageResourcesPath(String imageResourcesPath) {
     _pdfjsContext['imageResourcesPath'] = imageResourcesPath;
   }
 
-  static bool get isEvalSupported => _pdfjsContext['isEvalSupported'];
+  static bool get isEvalSupported => _pdfjsContext['isEvalSupported'] as bool;
   static set isEvalSupported(bool isEvalSupported) {
     _pdfjsContext['isEvalSupported'] = isEvalSupported;
   }
 
-  static int get maxImageSize => _pdfjsContext['maxImageSize'];
+  static int get maxImageSize => _pdfjsContext['maxImageSize'] as int;
   static set maxImageSize(int maxImageSize) {
     _pdfjsContext['maxImageSize'] = maxImageSize;
   }
 
-  static bool get pdfBug => _pdfjsContext['pdfBug'];
+  static bool get pdfBug => _pdfjsContext['pdfBug'] as bool;
   static set pdfBug(bool pdfBug) {
     _pdfjsContext['pdfBug'] = pdfBug;
   }
 
-  static bool get pdfjsNext => _pdfjsContext['pdfjsNext'];
+  static bool get pdfjsNext => _pdfjsContext['pdfjsNext'] as bool;
   static set pdfjsNext(bool pdfjsNext) {
     _pdfjsContext['pdfjsNext'] = pdfjsNext;
   }
 
-  static bool get postMessageTransfers => _pdfjsContext['postMessageTransfers'];
+  static bool get postMessageTransfers => _pdfjsContext['postMessageTransfers'] as bool;
   static set postMessageTransfers(bool postMessageTransfers) {
     _pdfjsContext['postMessageTransfers'] = postMessageTransfers;
   }
 
-  static VERBOSITY_LEVELS get verbosity =>
-      _verbosityLevelsPdfjsToDart[_pdfjsContext['verbosity']];
+  static VERBOSITY_LEVELS get verbosity => _verbosityLevelsPdfjsToDart[_pdfjsContext['verbosity']];
   static set verbosity(VERBOSITY_LEVELS verbosity) {
     _pdfjsContext['verbosity'] = _verbosityLevelsDartToPdfjs[verbosity];
   }
 
-  static int get workerPort => _pdfjsContext['workerPort'];
+  static int get workerPort => _pdfjsContext['workerPort'] as int;
   static set workerPort(int workerPort) {
     _pdfjsContext['workerPort'] = workerPort;
   }
 
-  static String get workerSrc => _pdfjsContext['workerSrc'];
+  static String get workerSrc => _pdfjsContext['workerSrc'] as String;
   static set workerSrc(String workerSrc) {
     _pdfjsContext['workerSrc'] = workerSrc;
   }
@@ -139,13 +135,12 @@ class PDFJS {
 
   @deprecated
   static PDFDocumentLoadingTask getDocument(dynamic src) {
-    JsObject documentTask = _pdfjsContext.callMethod('getDocument', [src]);
+    JsObject documentTask = _pdfjsContext.callMethod('getDocument', [src]) as JsObject;
 
     return PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
 
-  static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(
-      DocumentInitParameters src) {
+  static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(DocumentInitParameters src) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -160,8 +155,7 @@ class PDFJS {
     return getDocument(src);
   }
 
-  static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(
-      PDFDataRangeTransport src) {
+  static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(PDFDataRangeTransport src) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -171,9 +165,9 @@ class PDFJS {
   // FOOTGUN: Both this list and the following list must be kept in
   // corresponding order
   static List<int> _pdfjsVerbosityLevels = [
-    _pdfjsContext['VERBOSITY_LEVELS']['errors'],
-    _pdfjsContext['VERBOSITY_LEVELS']['warnings'],
-    _pdfjsContext['VERBOSITY_LEVELS']['infos'],
+    _pdfjsContext['VERBOSITY_LEVELS']['errors'] as int,
+    _pdfjsContext['VERBOSITY_LEVELS']['warnings'] as int,
+    _pdfjsContext['VERBOSITY_LEVELS']['infos'] as int,
   ];
 
   // FOOTGUN: Both this list and the preceding list must be kept in
@@ -193,11 +187,11 @@ class PDFJS {
   // FOOTGUN: Both this list and the following list must be kept in
   // corresponding order
   static List<int> _pdfjsLinkTarget = [
-    _pdfjsContext['LinkTarget']['NONE'],
-    _pdfjsContext['LinkTarget']['SELF'],
-    _pdfjsContext['LinkTarget']['BLANK'],
-    _pdfjsContext['LinkTarget']['PARENT'],
-    _pdfjsContext['LinkTarget']['TOP'],
+    _pdfjsContext['LinkTarget']['NONE'] as int,
+    _pdfjsContext['LinkTarget']['SELF'] as int,
+    _pdfjsContext['LinkTarget']['BLANK'] as int,
+    _pdfjsContext['LinkTarget']['PARENT'] as int,
+    _pdfjsContext['LinkTarget']['TOP'] as int,
   ];
 
   // FOOTGUN: Both this list and the preceding list must be kept in
@@ -210,9 +204,7 @@ class PDFJS {
     LinkTarget.TOP,
   ];
 
-  static Map<int, LinkTarget> _linkTargetPdfjsToDart =
-      Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
+  static Map<int, LinkTarget> _linkTargetPdfjsToDart = Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
 
-  static Map<LinkTarget, int> _linkTargetDartToPdfjs =
-      Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
+  static Map<LinkTarget, int> _linkTargetDartToPdfjs = Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
 }
