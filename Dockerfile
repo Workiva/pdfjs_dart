@@ -1,4 +1,4 @@
-FROM drydock-prod.workiva.net/workiva/dart2_base_image:1
+FROM drydock-prod.workiva.net/workiva/dart_build_image:1
 ARG NPM_TOKEN
 
 RUN apt-get update && apt-get install -y curl
