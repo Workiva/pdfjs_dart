@@ -22,8 +22,7 @@ class PDFPageProxy {
     final pdfjsLib = PDFJS.versionSafePdfJsContext;
     checkState(pdfjsLib != null, message: 'pdfjsLib was null in PDFPageProxy');
     final pdfPageProxyJs = pdfjsLib['PDFPageProxy'];
-    checkState(pdfPageProxyJs != null,
-        message: 'pdfPageProxyJs was null in PDFPageProxy');
+    checkState(pdfPageProxyJs != null, message: 'pdfPageProxyJs was null in PDFPageProxy');
     _jsInternal = JsObject(pdfPageProxyJs as JsFunction);
   }
 

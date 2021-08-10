@@ -43,8 +43,7 @@ class DocumentInitParameters {
     _jsInternal['initialData'] = initialData;
   }
 
-  Map<String, dynamic> get httpHeaders =>
-      _jsInternal['httpHeaders'] as Map<String, dynamic>;
+  Map<String, dynamic> get httpHeaders => _jsInternal['httpHeaders'] as Map<String, dynamic>;
   set httpHeaders(Map<String, dynamic> httpHeaders) {
     _jsInternal['httpHeaders'] = httpHeaders;
   }
@@ -55,12 +54,9 @@ class DocumentInitParameters {
   }
 
   NativeImageDecoderSupport get nativeImageDecoderSupport =>
-      _nativeImageDecoderSupportPdfjsToDart[
-          _jsInternal['nativeImageDecoderSupport']];
-  set nativeImageDecoderSupport(
-      NativeImageDecoderSupport nativeImageDecoderSupport) {
-    _jsInternal['nativeImageDecoderSupport'] =
-        _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
+      _nativeImageDecoderSupportPdfjsToDart[_jsInternal['nativeImageDecoderSupport']];
+  set nativeImageDecoderSupport(NativeImageDecoderSupport nativeImageDecoderSupport) {
+    _jsInternal['nativeImageDecoderSupport'] = _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
   }
 
   String get password => _jsInternal['password'] as String;
@@ -113,11 +109,9 @@ class DocumentInitParameters {
     NativeImageDecoderSupport.none,
   ];
 
-  static Map<String, NativeImageDecoderSupport>
-      _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
-          _pdfjsNativeImageDecoderSupport, _dartNativeImageDecoderSupport);
+  static Map<String, NativeImageDecoderSupport> _nativeImageDecoderSupportPdfjsToDart =
+      Map.fromIterables(_pdfjsNativeImageDecoderSupport, _dartNativeImageDecoderSupport);
 
-  static Map<NativeImageDecoderSupport, String>
-      _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
-          _dartNativeImageDecoderSupport, _pdfjsNativeImageDecoderSupport);
+  static Map<NativeImageDecoderSupport, String> _nativeImageDecoderSupportDartToPdfjs =
+      Map.fromIterables(_dartNativeImageDecoderSupport, _pdfjsNativeImageDecoderSupport);
 }
