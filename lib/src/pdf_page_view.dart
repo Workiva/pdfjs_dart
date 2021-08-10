@@ -38,7 +38,8 @@ class PDFPageView {
         break;
     }
 
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['PDFPageView'] as JsFunction, [
+    _jsInternal = JsObject(
+        PDFJS.versionSafePdfJsViewerContext['PDFPageView'] as JsFunction, [
       JsObject.jsify({
         'container': container,
         'id': id,
@@ -47,7 +48,8 @@ class PDFPageView {
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
-        'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext['EventBus'] as JsFunction),
+        'eventBus': JsObject(
+            PDFJS.versionSafePdfJsViewerContext['EventBus'] as JsFunction),
       })
     ]);
   }

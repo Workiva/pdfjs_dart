@@ -38,38 +38,38 @@ class PDFJS {
   /// Getter for obtaining the pdfjs context for various versions
   /// of pdf.js
   static JsObject get versionSafePdfJsContext {
-    if(_pdfJsContext != null) {
+    if (_pdfJsContext != null) {
       return _pdfJsContext;
     }
-    
+
     // ^v2.5.207
-    if(context['pdfjsLib'] != null) {
+    if (context['pdfjsLib'] != null) {
       _pdfJsContext = context['pdfjsLib'] as JsObject;
       return _pdfJsContext;
     }
     // v1.10.90+4
-    else if(context['PDFJS'] != null) {
+    else if (context['PDFJS'] != null) {
       _pdfJsContext = context['PDFJS'] as JsObject;
       return _pdfJsContext;
     }
 
-    return null;    
+    return null;
   }
 
   /// Getter for obtaining the pdfjs viewer context for various versions
   /// of pdf.js
   static JsObject get versionSafePdfJsViewerContext {
-    if(_pdfJsViewerContext != null) {
+    if (_pdfJsViewerContext != null) {
       return _pdfJsViewerContext;
     }
 
     // ^v2.5.207
-    if(context['pdfjsLib'] != null) {
+    if (context['pdfjsLib'] != null) {
       _pdfJsViewerContext = context['pdfjsViewer'] as JsObject;
       return _pdfJsViewerContext;
     }
     // v1.10.90+4
-    else if(context['PDFJS'] != null) {
+    else if (context['PDFJS'] != null) {
       _pdfJsViewerContext = context['PDFJS'] as JsObject;
       return _pdfJsViewerContext;
     }
@@ -87,57 +87,69 @@ class PDFJS {
     versionSafePdfJsContext['cMapUrl'] = cMapUrl;
   }
 
-  static bool get disableAutoFetch => versionSafePdfJsContext['disableAutoFetch'] as bool;
+  static bool get disableAutoFetch =>
+      versionSafePdfJsContext['disableAutoFetch'] as bool;
   static set disableAutoFetch(bool disableAutoFetch) {
     versionSafePdfJsContext['disableAutoFetch'] = disableAutoFetch;
   }
 
-  static bool get disableCreateObjectURL => versionSafePdfJsContext['disableCreateObjectURL'] as bool;
+  static bool get disableCreateObjectURL =>
+      versionSafePdfJsContext['disableCreateObjectURL'] as bool;
   static set disableCreateObjectURL(bool disableCreateObjectURL) {
     versionSafePdfJsContext['disableCreateObjectURL'] = disableCreateObjectURL;
   }
 
-  static bool get disableFontFace => versionSafePdfJsContext['disableFontFace'] as bool;
+  static bool get disableFontFace =>
+      versionSafePdfJsContext['disableFontFace'] as bool;
   static set disableFontFace(bool disableFontFace) {
     versionSafePdfJsContext['disableFontFace'] = disableFontFace;
   }
 
-  static bool get disableRange => versionSafePdfJsContext['disableRange'] as bool;
+  static bool get disableRange =>
+      versionSafePdfJsContext['disableRange'] as bool;
   static set disableRange(bool disableRange) {
     versionSafePdfJsContext['disableRange'] = disableRange;
   }
 
-  static bool get disableStream => versionSafePdfJsContext['disableStream'] as bool;
+  static bool get disableStream =>
+      versionSafePdfJsContext['disableStream'] as bool;
   static set disableStream(bool disableStream) {
     versionSafePdfJsContext['disableStream'] = disableStream;
   }
 
-  static bool get disableWebGL => versionSafePdfJsContext['disableWebGL'] as bool;
+  static bool get disableWebGL =>
+      versionSafePdfJsContext['disableWebGL'] as bool;
   static set disableWebGL(bool disableWebGL) {
     versionSafePdfJsContext['disableWebGL'] = disableWebGL;
   }
 
-  static bool get disableWorker => versionSafePdfJsContext['disableWorker'] as bool;
+  static bool get disableWorker =>
+      versionSafePdfJsContext['disableWorker'] as bool;
   static set disableWorker(bool disableWorker) {
     versionSafePdfJsContext['disableWorker'] = disableWorker;
   }
 
-  static String get externalLinkRel => versionSafePdfJsContext['externalLinkRel'] as String;
+  static String get externalLinkRel =>
+      versionSafePdfJsContext['externalLinkRel'] as String;
   static set externalLinkRel(String externalLinkRel) {
     versionSafePdfJsContext['externalLinkRel'] = externalLinkRel;
   }
 
-  static LinkTarget get externalLinkTarget => _linkTargetPdfjsToDart[versionSafePdfJsContext['externalLinkTarget']];
+  static LinkTarget get externalLinkTarget =>
+      _linkTargetPdfjsToDart[versionSafePdfJsContext['externalLinkTarget']];
   static set externalLinkTarget(LinkTarget externalLinkTarget) {
-    versionSafePdfJsContext['externalLinkTarget'] = _linkTargetDartToPdfjs[externalLinkTarget];
+    versionSafePdfJsContext['externalLinkTarget'] =
+        _linkTargetDartToPdfjs[externalLinkTarget];
   }
 
-  static String get imageResourcesPath => versionSafePdfJsContext['imageResourcesPath'] as String;
+  static String get imageResourcesPath =>
+      versionSafePdfJsContext['imageResourcesPath'] as String;
   static set imageResourcesPath(String imageResourcesPath) {
     versionSafePdfJsContext['imageResourcesPath'] = imageResourcesPath;
   }
 
-  static bool get isEvalSupported => versionSafePdfJsContext['isEvalSupported'] as bool;
+  static bool get isEvalSupported =>
+      versionSafePdfJsContext['isEvalSupported'] as bool;
   static set isEvalSupported(bool isEvalSupported) {
     versionSafePdfJsContext['isEvalSupported'] = isEvalSupported;
   }
@@ -157,14 +169,17 @@ class PDFJS {
     versionSafePdfJsContext['pdfjsNext'] = pdfjsNext;
   }
 
-  static bool get postMessageTransfers => versionSafePdfJsContext['postMessageTransfers'] as bool;
+  static bool get postMessageTransfers =>
+      versionSafePdfJsContext['postMessageTransfers'] as bool;
   static set postMessageTransfers(bool postMessageTransfers) {
     versionSafePdfJsContext['postMessageTransfers'] = postMessageTransfers;
   }
 
-  static VERBOSITY_LEVELS get verbosity => _verbosityLevelsPdfjsToDart[versionSafePdfJsContext['verbosity']];
+  static VERBOSITY_LEVELS get verbosity =>
+      _verbosityLevelsPdfjsToDart[versionSafePdfJsContext['verbosity']];
   static set verbosity(VERBOSITY_LEVELS verbosity) {
-    versionSafePdfJsContext['verbosity'] = _verbosityLevelsDartToPdfjs[verbosity];
+    versionSafePdfJsContext['verbosity'] =
+        _verbosityLevelsDartToPdfjs[verbosity];
   }
 
   static int get workerPort => versionSafePdfJsContext['workerPort'] as int;
@@ -181,12 +196,14 @@ class PDFJS {
 
   @deprecated
   static PDFDocumentLoadingTask getDocument(dynamic src) {
-    JsObject documentTask = versionSafePdfJsContext.callMethod('getDocument', [src]) as JsObject;
+    JsObject documentTask =
+        versionSafePdfJsContext.callMethod('getDocument', [src]) as JsObject;
 
     return PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
 
-  static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(DocumentInitParameters src) {
+  static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(
+      DocumentInitParameters src) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -201,7 +218,8 @@ class PDFJS {
     return getDocument(src);
   }
 
-  static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(PDFDataRangeTransport src) {
+  static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(
+      PDFDataRangeTransport src) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -250,7 +268,9 @@ class PDFJS {
     LinkTarget.TOP,
   ];
 
-  static Map<int, LinkTarget> _linkTargetPdfjsToDart = Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
+  static Map<int, LinkTarget> _linkTargetPdfjsToDart =
+      Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
 
-  static Map<LinkTarget, int> _linkTargetDartToPdfjs = Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
+  static Map<LinkTarget, int> _linkTargetDartToPdfjs =
+      Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
 }

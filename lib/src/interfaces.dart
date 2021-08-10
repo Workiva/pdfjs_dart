@@ -42,7 +42,8 @@ class AnnotationLayerBuilderOptions {
     _pdfPage = pdfPage;
   }
 
-  bool get renderInteractiveForms => _jsInternal['renderInteractiveForms'] as bool;
+  bool get renderInteractiveForms =>
+      _jsInternal['renderInteractiveForms'] as bool;
   set renderInteractiveForms(bool renderInteractiveForms) {
     _jsInternal['renderInteractiveForms'] = renderInteractiveForms;
   }
@@ -54,9 +55,12 @@ class AnnotationLayerBuilder {
   JsObject _jsInternal;
 
   AnnotationLayerBuilder(AnnotationLayerBuilderOptions options) {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['AnnotationLayerBuilder'] as JsFunction, [
-      options,
-    ]);
+    _jsInternal = JsObject(
+        PDFJS.versionSafePdfJsViewerContext['AnnotationLayerBuilder']
+            as JsFunction,
+        [
+          options,
+        ]);
   }
 
   AnnotationLayerBuilder._withJsInternal(this._jsInternal);
@@ -71,11 +75,13 @@ abstract class IPDFAnnotationLayerFactory {
 
   IPDFAnnotationLayerFactory() {
     _jsInternal['createAnnotationLayerBuilder'] =
-        (DivElement pageDiv, JsObject jsPdfPage, [bool renderInteractiveForms, JsObject jsL10n]) {
+        (DivElement pageDiv, JsObject jsPdfPage,
+            [bool renderInteractiveForms, JsObject jsL10n]) {
       PDFPageProxy pdfPage = PDFPageProxy._withJsInternal(jsPdfPage);
       IL10n l10n = _JsIL10n._withJsInternal(jsL10n);
 
-      AnnotationLayerBuilder annotationLayerBuilder = createAnnotationLayerBuilder(
+      AnnotationLayerBuilder annotationLayerBuilder =
+          createAnnotationLayerBuilder(
         pageDiv,
         pdfPage,
         l10n: l10n,
@@ -102,7 +108,10 @@ class DefaultTextLayerFactory implements IPDFTextLayerFactory {
   JsObject _jsInternal;
 
   DefaultTextLayerFactory() {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['DefaultTextLayerFactory'] as JsFunction, []);
+    _jsInternal = JsObject(
+        PDFJS.versionSafePdfJsViewerContext['DefaultTextLayerFactory']
+            as JsFunction,
+        []);
   }
 }
 
@@ -110,7 +119,10 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
   JsObject _jsInternal;
 
   DefaultAnnotationLayerFactory() {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['DefaultAnnotationLayerFactory'] as JsFunction, []);
+    _jsInternal = JsObject(
+        PDFJS.versionSafePdfJsViewerContext['DefaultAnnotationLayerFactory']
+            as JsFunction,
+        []);
   }
 
   AnnotationLayerBuilder createAnnotationLayerBuilder(
@@ -120,8 +132,12 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
     bool renderInteractiveForms = false,
   }) {
     JsObject jsAnnotationLayerBuilder = _jsInternal.callMethod(
-            'createAnnotationLayerBuilder', [pageDiv, pdfPage._jsInternal, renderInteractiveForms, l10n?._jsInternal])
-        as JsObject;
+        'createAnnotationLayerBuilder', [
+      pageDiv,
+      pdfPage._jsInternal,
+      renderInteractiveForms,
+      l10n?._jsInternal
+    ]) as JsObject;
 
     return AnnotationLayerBuilder._withJsInternal(jsAnnotationLayerBuilder);
   }
@@ -149,13 +165,15 @@ class _JsIL10n implements IL10n {
   }
 
   Future<String> get(String key, Map args, String fallback) {
-    JsObject promise = _jsInternal.callMethod('get', [key, JsObject.jsify(args), fallback]) as JsObject;
+    JsObject promise = _jsInternal
+        .callMethod('get', [key, JsObject.jsify(args), fallback]) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }
 
   Future<Null> translate(HtmlElement element) {
-    JsObject promise = _jsInternal.callMethod('translate', [element]) as JsObject;
+    JsObject promise =
+        _jsInternal.callMethod('translate', [element]) as JsObject;
 
     return _promiseToFuture<Null>(promise);
   }
