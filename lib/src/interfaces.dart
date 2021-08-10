@@ -54,7 +54,7 @@ class AnnotationLayerBuilder {
   JsObject _jsInternal;
 
   AnnotationLayerBuilder(AnnotationLayerBuilderOptions options) {
-    _jsInternal = JsObject(context['pdfjsViewer']['AnnotationLayerBuilder'] as JsFunction, [
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['AnnotationLayerBuilder'] as JsFunction, [
       options,
     ]);
   }
@@ -102,7 +102,7 @@ class DefaultTextLayerFactory implements IPDFTextLayerFactory {
   JsObject _jsInternal;
 
   DefaultTextLayerFactory() {
-    _jsInternal = JsObject(context['pdfjsViewer']['DefaultTextLayerFactory'] as JsFunction, []);
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['DefaultTextLayerFactory'] as JsFunction, []);
   }
 }
 
@@ -110,7 +110,7 @@ class DefaultAnnotationLayerFactory implements IPDFAnnotationLayerFactory {
   JsObject _jsInternal;
 
   DefaultAnnotationLayerFactory() {
-    _jsInternal = JsObject(context['pdfjsViewer']['DefaultAnnotationLayerFactory'] as JsFunction, []);
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['DefaultAnnotationLayerFactory'] as JsFunction, []);
   }
 
   AnnotationLayerBuilder createAnnotationLayerBuilder(

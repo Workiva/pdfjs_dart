@@ -29,8 +29,11 @@ enum VERBOSITY_LEVELS {
 }
 
 class PDFJS {
-  /// the local copy of _pdfJsContext once initialized
+  /// the local copy of versionSafePdfJsContext once initialized
   static JsObject _pdfJsContext;
+
+  /// the local copy of versionSafePdfJsViewerContext once initialized
+  static JsObject _pdfJsViewerContext;
 
   /// Getter for obtaining the pdfjs context for various versions
   /// of pdf.js
@@ -51,6 +54,27 @@ class PDFJS {
     }
 
     return null;    
+  }
+
+  /// Getter for obtaining the pdfjs viewer context for various versions
+  /// of pdf.js
+  static JsObject get versionSafePdfJsViewerContext {
+    if(_pdfJsViewerContext != null) {
+      return _pdfJsViewerContext;
+    }
+
+    // ^v2.5.207
+    if(context['pdfjsLib'] != null) {
+      _pdfJsViewerContext = context['pdfjsViewer'] as JsObject;
+      return _pdfJsViewerContext;
+    }
+    // v1.10.90+4
+    else if(context['PDFJS'] != null) {
+      _pdfJsViewerContext = context['PDFJS'] as JsObject;
+      return _pdfJsViewerContext;
+    }
+
+    return null;
   }
 
   static bool get cMapPacked => versionSafePdfJsContext['cMapPacked'] as bool;
