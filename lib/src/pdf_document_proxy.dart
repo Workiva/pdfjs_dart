@@ -173,11 +173,19 @@ class PDFDocumentProxy {
   Future<List<OutlineItem>> getOutline() {
     JsObject promise = _jsInternal.callMethod('getOutline', []) as JsObject;
 
-    return _promiseToFuture<List<OutlineItem>>(promise,
-        transform: (value) {
-      if (value is List<JsObject>) {
-        _dartifyOutlineItemList(value as List<JsObject>);
+    return _promiseToFuture<List<OutlineItem>>(promise, transform: (value) {
+      List<JsObject> outlineNodes;
+      // Gotta be extra typesafe here to build a List<JsObject>
+      if (value is JsArray<dynamic>) {
+        outlineNodes = [];
+        for (final val in value) {
+          if (val is JsObject) {
+            outlineNodes.add(val as JsObject);
+          }
+        }
       }
+      // This will return null if outlineNodes is null
+      return _dartifyOutlineItemList(outlineNodes);
     });
   }
 
