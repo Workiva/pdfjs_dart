@@ -64,7 +64,7 @@ class PDFJS {
     }
 
     // ^v2.5.207
-    if(context['pdfjsLib'] != null) {
+    if(context['pdfjsViewer'] != null) {
       _pdfJsViewerContext = context['pdfjsViewer'] as JsObject;
       return _pdfJsViewerContext;
     }
