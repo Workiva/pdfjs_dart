@@ -38,11 +38,7 @@
       "languageVersion": "2.4"
     }
   ],
-<<<<<<< HEAD
-  "generated": "2021-08-10T16:55:22.039101Z",
-=======
   "generated": "2021-07-12T18:01:06.181886Z",
->>>>>>> parent of 0c211c1 (Add in ddev formatting, fix getOutline failures)
   "generator": "pub",
   "generatorVersion": "2.7.2"
 }
