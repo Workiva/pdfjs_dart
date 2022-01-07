@@ -16,6 +16,11 @@ part of pdfjs;
 
 enum PDFPageViewRenderer { canvas, svg }
 
+enum AnnotationMode {
+  disabled,
+  enabled
+}
+
 class PDFPageView {
   JsObject _jsInternal;
 
@@ -27,6 +32,7 @@ class PDFPageView {
     PDFPageViewRenderer renderer,
     IPDFAnnotationLayerFactory annotationLayerFactory,
     IPDFTextLayerFactory textLayerFactory,
+    AnnotationMode annotationMode,
   }) {
     String rendererString;
     switch (renderer) {
@@ -47,7 +53,8 @@ class PDFPageView {
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
-        'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext['EventBus'] as JsFunction),
+        'eventBus': JsObject(context['pdfjsViewer']['EventBus'] as JsFunction),
+        'annotationMode': annotationMode == AnnotationMode.disabled ? 0 : 2,
       })
     ]);
   }
