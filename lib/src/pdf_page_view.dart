@@ -16,8 +16,18 @@ part of pdfjs;
 
 enum PDFPageViewRenderer { canvas, svg }
 
+String? _rendererString(PDFPageViewRenderer? renderer) {
+  switch (renderer) {
+    case PDFPageViewRenderer.canvas:
+      return 'canvas';
+    case PDFPageViewRenderer.svg:
+      return 'svg';
+    default:
+      return null;
+  }
+}
 class PDFPageView {
-  late JsObject _jsInternal;
+  JsObject _jsInternal;
 
   PDFPageView({
     DivElement? container,
@@ -27,30 +37,19 @@ class PDFPageView {
     PDFPageViewRenderer? renderer,
     IPDFAnnotationLayerFactory? annotationLayerFactory,
     IPDFTextLayerFactory? textLayerFactory,
-  }) {
-    String? rendererString;
-    switch (renderer) {
-      case PDFPageViewRenderer.canvas:
-        rendererString = 'canvas';
-        break;
-      case PDFPageViewRenderer.svg:
-        rendererString = 'svg';
-        break;
-    }
-
+  }) :
     _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext!['PDFPageView'] as JsFunction, [
       JsObject.jsify({
         'container': container,
         'id': id,
         'scale': scale,
         'defaultViewport': defaultViewport?._jsInternal,
-        'renderer': rendererString,
+        'renderer': _rendererString(renderer),
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
         'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext!['EventBus'] as JsFunction),
       })
     ]);
-  }
 
   DivElement? get div => _jsInternal['div'] as DivElement?;
 

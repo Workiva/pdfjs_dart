@@ -64,7 +64,7 @@ dynamic _dartifyDestination(dynamic jsDest) {
 }
 
 List<dynamic> _dartifyExplicitDestination(List<dynamic> jsDest) {
-  List<dynamic> dartDest = List<dynamic>(jsDest.length);
+  List<dynamic> dartDest = List.filled(jsDest.length, null);
 
   // The first item is always a page ref; create a strongly-typed dart object
   // for it
@@ -85,7 +85,7 @@ List<OutlineItem>? _dartifyOutlineItemList(List<JsObject>? jsItems) {
     return null;
   }
 
-  List<OutlineItem> items = List<OutlineItem>();
+  List<OutlineItem> items = [];
   for (JsObject jsItem in jsItems) {
     OutlineItem item = OutlineItem._withJsInternal(jsItem);
 

@@ -181,7 +181,7 @@ class PDFJS {
 
   @deprecated
   static PDFDocumentLoadingTask getDocument(dynamic src) {
-    JsObject? documentTask = versionSafePdfJsContext!.callMethod('getDocument', [src]) as JsObject?;
+    JsObject documentTask = versionSafePdfJsContext!.callMethod('getDocument', [src]) as JsObject;
 
     return PDFDocumentLoadingTask._withJsInternal(documentTask);
   }

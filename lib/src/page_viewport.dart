@@ -15,16 +15,15 @@
 part of pdfjs;
 
 class PageViewport {
-  JsObject? _jsInternal;
+  JsObject _jsInternal;
 
-  PageViewport() {
+  PageViewport() :
     _jsInternal = JsObject(PDFJS.versionSafePdfJsContext!['PageViewport'] as JsFunction);
-  }
 
   PageViewport._withJsInternal(this._jsInternal);
 
   PageViewport clone({num? rotation, num? scale}) {
-    JsObject? viewport = _jsInternal!.callMethod('clone', []) as JsObject?;
+    JsObject viewport = _jsInternal.callMethod('clone', []) as JsObject;
 
     return PageViewport._withJsInternal(viewport);
   }
