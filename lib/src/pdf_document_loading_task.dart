@@ -15,11 +15,11 @@
 part of pdfjs;
 
 class PDFDocumentLoadingTask {
-  Future<PDFDocumentProxy> _future;
-  JsObject _jsInternal;
+  Future<PDFDocumentProxy>? _future;
+  JsObject? _jsInternal;
 
   PDFDocumentLoadingTask() {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext['PDFDocumentLoadingTask'] as JsFunction);
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext!['PDFDocumentLoadingTask'] as JsFunction);
     _initFuture();
   }
 
@@ -28,18 +28,18 @@ class PDFDocumentLoadingTask {
   }
 
   void _initFuture() {
-    _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal['promise'] as JsObject,
+    _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal!['promise'] as JsObject,
         transform: (value) => PDFDocumentProxy._withJsInternal(value as JsObject));
   }
 
-  bool get destroyed => _jsInternal['destroyed'] as bool;
+  bool? get destroyed => _jsInternal!['destroyed'] as bool?;
 
-  String get docId => _jsInternal['docId'] as String;
+  String? get docId => _jsInternal!['docId'] as String?;
 
-  Future<PDFDocumentProxy> get future => _future;
+  Future<PDFDocumentProxy>? get future => _future;
 
-  Future destroy() => _promiseToFuture(_jsInternal.callMethod('destroy', []) as JsObject);
+  Future destroy() => _promiseToFuture(_jsInternal!.callMethod('destroy', []) as JsObject);
 
-  Future<S> then<S>(FutureOr<S> onValue(PDFDocumentProxy value), {Function onError}) =>
-      _future.then(onValue, onError: onError);
+  Future<S> then<S>(FutureOr<S> onValue(PDFDocumentProxy value), {Function? onError}) =>
+      _future!.then(onValue, onError: onError);
 }

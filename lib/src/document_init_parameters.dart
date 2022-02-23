@@ -21,76 +21,76 @@ enum NativeImageDecoderSupport {
 }
 
 class DocumentInitParameters {
-  JsObject _jsInternal;
-  PDFDataRangeTransport _range;
+  JsObject? _jsInternal;
+  late PDFDataRangeTransport _range;
 
   DocumentInitParameters() {
     _jsInternal = JsObject.jsify({});
   }
 
-  TypedData get data => _jsInternal['data'] as TypedData;
-  set data(TypedData data) {
-    _jsInternal['data'] = data;
+  TypedData? get data => _jsInternal!['data'] as TypedData?;
+  set data(TypedData? data) {
+    _jsInternal!['data'] = data;
   }
 
-  String get docBaseUrl => _jsInternal['docBaseUrl'] as String;
-  set docBaseUrl(String docBaseUrl) {
-    _jsInternal['docBaseUrl'] = docBaseUrl;
+  String? get docBaseUrl => _jsInternal!['docBaseUrl'] as String?;
+  set docBaseUrl(String? docBaseUrl) {
+    _jsInternal!['docBaseUrl'] = docBaseUrl;
   }
 
-  TypedData get initialData => _jsInternal['initialData'] as TypedData;
-  set initialData(TypedData initialData) {
-    _jsInternal['initialData'] = initialData;
+  TypedData? get initialData => _jsInternal!['initialData'] as TypedData?;
+  set initialData(TypedData? initialData) {
+    _jsInternal!['initialData'] = initialData;
   }
 
-  Map<String, dynamic> get httpHeaders => _jsInternal['httpHeaders'] as Map<String, dynamic>;
-  set httpHeaders(Map<String, dynamic> httpHeaders) {
-    _jsInternal['httpHeaders'] = httpHeaders;
+  Map<String, dynamic>? get httpHeaders => _jsInternal!['httpHeaders'] as Map<String, dynamic>?;
+  set httpHeaders(Map<String, dynamic>? httpHeaders) {
+    _jsInternal!['httpHeaders'] = httpHeaders;
   }
 
-  int get length => _jsInternal['length'] as int;
-  set length(int length) {
-    _jsInternal['length'] = length;
+  int? get length => _jsInternal!['length'] as int?;
+  set length(int? length) {
+    _jsInternal!['length'] = length;
   }
 
-  NativeImageDecoderSupport get nativeImageDecoderSupport =>
-      _nativeImageDecoderSupportPdfjsToDart[_jsInternal['nativeImageDecoderSupport']];
-  set nativeImageDecoderSupport(NativeImageDecoderSupport nativeImageDecoderSupport) {
-    _jsInternal['nativeImageDecoderSupport'] = _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
+  NativeImageDecoderSupport? get nativeImageDecoderSupport =>
+      _nativeImageDecoderSupportPdfjsToDart[_jsInternal!['nativeImageDecoderSupport']];
+  set nativeImageDecoderSupport(NativeImageDecoderSupport? nativeImageDecoderSupport) {
+    _jsInternal!['nativeImageDecoderSupport'] = _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport!];
   }
 
-  String get password => _jsInternal['password'] as String;
-  set password(String password) {
-    _jsInternal['password'] = password;
+  String? get password => _jsInternal!['password'] as String?;
+  set password(String? password) {
+    _jsInternal!['password'] = password;
   }
 
   PDFDataRangeTransport get range => _range;
   set range(PDFDataRangeTransport range) {
-    _jsInternal['range'] = range._jsInternal;
+    _jsInternal!['range'] = range._jsInternal;
 
     // It's not ideal that we store this, but PDF.js shouldn't be setting this
     // property and we can't properly recreate the original object
     _range = range;
   }
 
-  int get rangeChunkSize => _jsInternal['rangeChunkSize'] as int;
-  set rangeChunkSize(int rangeChunkSize) {
-    _jsInternal['rangeChunkSize'] = rangeChunkSize;
+  int? get rangeChunkSize => _jsInternal!['rangeChunkSize'] as int?;
+  set rangeChunkSize(int? rangeChunkSize) {
+    _jsInternal!['rangeChunkSize'] = rangeChunkSize;
   }
 
-  bool get stopAtErrors => _jsInternal['stopAtErrors'] as bool;
-  set stopAtErrors(bool stopAtErrors) {
-    _jsInternal['stopAtErrors'] = stopAtErrors;
+  bool? get stopAtErrors => _jsInternal!['stopAtErrors'] as bool?;
+  set stopAtErrors(bool? stopAtErrors) {
+    _jsInternal!['stopAtErrors'] = stopAtErrors;
   }
 
-  String get url => _jsInternal['url'] as String;
-  set url(String url) {
-    _jsInternal['url'] = url;
+  String? get url => _jsInternal!['url'] as String?;
+  set url(String? url) {
+    _jsInternal!['url'] = url;
   }
 
-  bool get withCredentials => _jsInternal['withCredentials'] as bool;
-  set withCredentials(bool withCredentials) {
-    _jsInternal['withCredentials'] = withCredentials;
+  bool? get withCredentials => _jsInternal!['withCredentials'] as bool?;
+  set withCredentials(bool? withCredentials) {
+    _jsInternal!['withCredentials'] = withCredentials;
   }
 
   // FOOTGUN: Both this list and the following list must be kept in
