@@ -15,22 +15,22 @@
 part of pdfjs;
 
 class PDFDocumentLoadingTask {
-  late Future<PDFDocumentProxy> _future;
+  Future<PDFDocumentProxy> _future;
   JsObject _jsInternal;
 
   PDFDocumentLoadingTask() :
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext!['PDFDocumentLoadingTask'] as JsFunction) {
-      _initFuture();
-  }
+    _jsInternal = _getJsInternal(),
+    _future = _initFuture();
 
-  PDFDocumentLoadingTask._withJsInternal(this._jsInternal) {
-    _initFuture();
-  }
+  PDFDocumentLoadingTask._withJsInternal(this._jsInternal) :
+    _future = _initFuture();
 
-  void _initFuture() {
-    _future = _promiseToFuture<PDFDocumentProxy>(_jsInternal['promise'] as JsObject,
-        transform: (value) => PDFDocumentProxy._withJsInternal(value as JsObject));
-  }
+  static JsObject _getJsInternal() =>
+    JsObject(PDFJS.versionSafePdfJsContext!['PDFDocumentLoadingTask'] as JsFunction);
+
+  static Future<PDFDocumentProxy> _initFuture() =>
+    _promiseToFuture<PDFDocumentProxy>(_getJsInternal()['promise'] as JsObject,
+      transform: (value) => PDFDocumentProxy._withJsInternal(value as JsObject));
 
   bool? get destroyed => _jsInternal['destroyed'] as bool?;
 
