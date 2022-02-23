@@ -1,6 +1,7 @@
 # Dart
 .packages
 pubspec.lock
+.dart_tool
 
 # JavaScript
 node_modules/
