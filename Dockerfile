@@ -9,7 +9,7 @@ RUN npm --version
 
 WORKDIR /build/
 ADD . /build/
-RUN pub get
+RUN dart pub get
 
 RUN npm install
 RUN mkdir /audit/
