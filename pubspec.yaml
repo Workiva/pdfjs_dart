@@ -7,4 +7,4 @@ environment:
   sdk: ">=2.11.0 <3.0.0"
 
 dependencies:
-  quiver: ">=0.25.0 <3.0.0"
+  quiver: '>=0.25.0 <4.0.0'
