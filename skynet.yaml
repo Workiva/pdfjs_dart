@@ -1,13 +1,13 @@
-name: verify-github-actions
-description: Verify that the github actions run passed, this is needed to make pipelines pass without manual intervention
-contact: 'Integrated Risk Frontend / #ir-frontend-support'
-image: drydock.workiva.net/workiva/skynet-images:3693290 # Uses the image from this branch: https://github.com/Workiva/skynet-images/pull/127
-size: small
-timeout: 600
+description: RM automation
+contact: "#ir-frontend-support"
+image: drydock.workiva.net/workiva/skynet-images:bash_curl_alpinelatest-latest
 
-env:
-# encrypted github token used for requests to api.github.com
- - secure: 7Wfv1fOfzpKeLV09OXUSumBgcu2ukr7eHZTBm7+smOjBDpawVEXLhry8CKUdu5hgADz8YACZGiBJHLlCVJ3SlTYMQk8=
+size: small
+timeout: short
+
+run:
+  on-tag: true
+  on-pull-request: true
 
 scripts:
-  - python3 /actions/verify_github_actions.py
+  - echo "There are no tests in this repo"
