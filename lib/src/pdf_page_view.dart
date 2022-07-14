@@ -70,7 +70,10 @@ class PDFPageView {
     _jsInternal.callMethod('setPdfPage', [pdfPage._jsInternal]);
   }
 
-  void update(num scale, [num rotation = 0]) {
-    _jsInternal.callMethod('update', [scale, rotation]);
+  void update({num scale = 0, num rotation = 0}) {
+    _jsInternal.callMethod('update', [JsObject.jsify({
+      'scale': scale,
+      'rotation': rotation,
+    })]);
   }
 }
