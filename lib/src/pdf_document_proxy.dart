@@ -144,8 +144,8 @@ class PDFDocumentProxy {
 
   int get numPages => _jsInternal['numPages'] as int;
 
-  void cleanup() {
-    _jsInternal.callMethod('cleanup', []);
+  void cleanup({bool keepLoadedFonts = false}) {
+    _jsInternal.callMethod('cleanup', [keepLoadedFonts]);
   }
 
   void destroy() {
