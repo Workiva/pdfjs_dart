@@ -70,10 +70,29 @@ class PDFPageView {
     _jsInternal.callMethod('setPdfPage', [pdfPage._jsInternal]);
   }
 
-  void update({num scale = 0, num rotation = 0}) {
+  void update(num scale, [num rotation = 0]) {
+    _updateV2(scale: scale, rotation: rotation);
+
+    if (!_isUpdated(scale: scale, rotation: rotation)) {
+      _updateV1(scale, rotation: rotation);
+    }
+  }
+
+  /// v2.11.338+
+  void _updateV2({num scale = 0, num rotation = 0}) {
     _jsInternal.callMethod('update', [JsObject.jsify({
       'scale': scale,
       'rotation': rotation,
     })]);
+  }
+
+  bool _isUpdated({num scale = 0, num rotation = 0}) {
+    dynamic jsScale = _jsInternal['scale'];
+    num jsRotation = _jsInternal['rotation'] as num;
+    return jsScale is num && jsScale == scale && jsRotation == rotation;
+  }
+
+  void _updateV1(num scale, {num rotation = 0}) {
+    _jsInternal.callMethod('update', [scale, rotation]);
   }
 }
