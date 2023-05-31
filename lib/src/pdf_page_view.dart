@@ -17,18 +17,18 @@ part of pdfjs;
 enum PDFPageViewRenderer { canvas, svg }
 
 class PDFPageView {
-  JsObject _jsInternal;
+  late JsObject _jsInternal;
 
   PDFPageView({
-    DivElement container,
-    num id,
-    num scale,
-    PageViewport defaultViewport,
-    PDFPageViewRenderer renderer,
-    IPDFAnnotationLayerFactory annotationLayerFactory,
-    IPDFTextLayerFactory textLayerFactory,
+    DivElement? container,
+    num? id,
+    num? scale,
+    PageViewport? defaultViewport,
+    PDFPageViewRenderer? renderer,
+    IPDFAnnotationLayerFactory? annotationLayerFactory,
+    IPDFTextLayerFactory? textLayerFactory,
   }) {
-    String rendererString;
+    String? rendererString;
     switch (renderer) {
       case PDFPageViewRenderer.canvas:
         rendererString = 'canvas';
@@ -38,7 +38,7 @@ class PDFPageView {
         break;
     }
 
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext['PDFPageView'] as JsFunction, [
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext!['PDFPageView'] as JsFunction, [
       JsObject.jsify({
         'container': container,
         'id': id,
@@ -47,12 +47,12 @@ class PDFPageView {
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
-        'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext['EventBus'] as JsFunction),
+        'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext!['EventBus'] as JsFunction),
       })
     ]);
   }
 
-  DivElement get div => _jsInternal['div'] as DivElement;
+  DivElement? get div => _jsInternal['div'] as DivElement?;
 
   void cancelRendering() {
     _jsInternal.callMethod('cancelRendering', []);
@@ -88,7 +88,7 @@ class PDFPageView {
 
   bool _isUpdated({num scale = 0, num rotation = 0}) {
     dynamic jsScale = _jsInternal['scale'];
-    num jsRotation = _jsInternal['rotation'] as num;
+    num? jsRotation = _jsInternal['rotation'] as num?;
     return jsScale is num && jsScale == scale && jsRotation == rotation;
   }
 

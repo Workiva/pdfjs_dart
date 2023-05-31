@@ -15,11 +15,11 @@
 part of pdfjs;
 
 class PDFPageProxy {
-  JsObject _jsInternal;
+  JsObject? _jsInternal;
 
   PDFPageProxy() {
     checkNotNull(context, message: 'context was null in PDFPageProxy');
-    final pdfjsLib = PDFJS.versionSafePdfJsContext;
+    final pdfjsLib = PDFJS.versionSafePdfJsContext!;
     checkState(pdfjsLib != null, message: 'pdfjsLib was null in PDFPageProxy');
     final pdfPageProxyJs = pdfjsLib['PDFPageProxy'];
     checkState(pdfPageProxyJs != null, message: 'pdfPageProxyJs was null in PDFPageProxy');
@@ -28,30 +28,30 @@ class PDFPageProxy {
 
   PDFPageProxy._withJsInternal(this._jsInternal);
 
-  int get pageNumber => _jsInternal['pageNumber'] as int;
+  int? get pageNumber => _jsInternal!['pageNumber'] as int?;
 
-  int get rotate => _jsInternal['rotate'] as int;
+  int? get rotate => _jsInternal!['rotate'] as int?;
 
-  num get userUnit => _jsInternal['userUnit'] as num;
+  num? get userUnit => _jsInternal!['userUnit'] as num?;
 
-  JsArray<dynamic> get view => _jsInternal['view'] as JsArray<dynamic>;
+  JsArray<dynamic>? get view => _jsInternal!['view'] as JsArray<dynamic>?;
 
   void cleanup() {
-    _jsInternal.callMethod('cleanup', []);
+    _jsInternal!.callMethod('cleanup', []);
   }
 
   PageViewport getViewport(
     num scale, {
-    int rotation,
-    bool dontFlip,
+    int? rotation,
+    bool? dontFlip,
   }) {
-    final jsViewport = _jsInternal.callMethod('getViewport', [
+    final jsViewport = _jsInternal!.callMethod('getViewport', [
       JsObject.jsify({
         'scale': scale,
         'rotation': rotation,
         'dontFlip': dontFlip,
       })
-    ]) as JsObject;
+    ]) as JsObject?;
 
     return PageViewport._withJsInternal(jsViewport);
   }
