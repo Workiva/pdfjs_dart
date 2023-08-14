@@ -77,111 +77,111 @@ class PDFJS {
     return null;
   }
 
-  static bool? get cMapPacked => versionSafePdfJsContext!['cMapPacked'] as bool?;
+  static bool? get cMapPacked => versionSafePdfJsContext?['cMapPacked'] as bool?;
   static set cMapPacked(bool? cMapPacked) {
-    versionSafePdfJsContext!['cMapPacked'] = cMapPacked;
+    versionSafePdfJsContext?['cMapPacked'] = cMapPacked;
   }
 
-  static String? get cMapUrl => versionSafePdfJsContext!['cMapUrl'] as String?;
+  static String? get cMapUrl => versionSafePdfJsContext?['cMapUrl'] as String?;
   static set cMapUrl(String? cMapUrl) {
-    versionSafePdfJsContext!['cMapUrl'] = cMapUrl;
+    versionSafePdfJsContext?['cMapUrl'] = cMapUrl;
   }
 
-  static bool? get disableAutoFetch => versionSafePdfJsContext!['disableAutoFetch'] as bool?;
+  static bool? get disableAutoFetch => versionSafePdfJsContext?['disableAutoFetch'] as bool?;
   static set disableAutoFetch(bool? disableAutoFetch) {
-    versionSafePdfJsContext!['disableAutoFetch'] = disableAutoFetch;
+    versionSafePdfJsContext?['disableAutoFetch'] = disableAutoFetch;
   }
 
-  static bool? get disableCreateObjectURL => versionSafePdfJsContext!['disableCreateObjectURL'] as bool?;
+  static bool? get disableCreateObjectURL => versionSafePdfJsContext?['disableCreateObjectURL'] as bool?;
   static set disableCreateObjectURL(bool? disableCreateObjectURL) {
-    versionSafePdfJsContext!['disableCreateObjectURL'] = disableCreateObjectURL;
+    versionSafePdfJsContext?['disableCreateObjectURL'] = disableCreateObjectURL;
   }
 
-  static bool? get disableFontFace => versionSafePdfJsContext!['disableFontFace'] as bool?;
+  static bool? get disableFontFace => versionSafePdfJsContext?['disableFontFace'] as bool?;
   static set disableFontFace(bool? disableFontFace) {
-    versionSafePdfJsContext!['disableFontFace'] = disableFontFace;
+    versionSafePdfJsContext?['disableFontFace'] = disableFontFace;
   }
 
-  static bool? get disableRange => versionSafePdfJsContext!['disableRange'] as bool?;
+  static bool? get disableRange => versionSafePdfJsContext?['disableRange'] as bool?;
   static set disableRange(bool? disableRange) {
-    versionSafePdfJsContext!['disableRange'] = disableRange;
+    versionSafePdfJsContext?['disableRange'] = disableRange;
   }
 
-  static bool? get disableStream => versionSafePdfJsContext!['disableStream'] as bool?;
+  static bool? get disableStream => versionSafePdfJsContext?['disableStream'] as bool?;
   static set disableStream(bool? disableStream) {
-    versionSafePdfJsContext!['disableStream'] = disableStream;
+    versionSafePdfJsContext?['disableStream'] = disableStream;
   }
 
-  static bool? get disableWebGL => versionSafePdfJsContext!['disableWebGL'] as bool?;
+  static bool? get disableWebGL => versionSafePdfJsContext?['disableWebGL'] as bool?;
   static set disableWebGL(bool? disableWebGL) {
-    versionSafePdfJsContext!['disableWebGL'] = disableWebGL;
+    versionSafePdfJsContext?['disableWebGL'] = disableWebGL;
   }
 
-  static bool? get disableWorker => versionSafePdfJsContext!['disableWorker'] as bool?;
+  static bool? get disableWorker => versionSafePdfJsContext?['disableWorker'] as bool?;
   static set disableWorker(bool? disableWorker) {
-    versionSafePdfJsContext!['disableWorker'] = disableWorker;
+    versionSafePdfJsContext?['disableWorker'] = disableWorker;
   }
 
-  static String? get externalLinkRel => versionSafePdfJsContext!['externalLinkRel'] as String?;
+  static String? get externalLinkRel => versionSafePdfJsContext?['externalLinkRel'] as String?;
   static set externalLinkRel(String? externalLinkRel) {
-    versionSafePdfJsContext!['externalLinkRel'] = externalLinkRel;
+    versionSafePdfJsContext?['externalLinkRel'] = externalLinkRel;
   }
 
-  static LinkTarget? get externalLinkTarget => _linkTargetPdfjsToDart[versionSafePdfJsContext!['externalLinkTarget']];
+  static LinkTarget? get externalLinkTarget => _linkTargetPdfjsToDart[versionSafePdfJsContext?['externalLinkTarget']];
   static set externalLinkTarget(LinkTarget? externalLinkTarget) {
-    versionSafePdfJsContext!['externalLinkTarget'] = _linkTargetDartToPdfjs[externalLinkTarget!];
+    versionSafePdfJsContext?['externalLinkTarget'] = _linkTargetDartToPdfjs[externalLinkTarget];
   }
 
-  static String? get imageResourcesPath => versionSafePdfJsContext!['imageResourcesPath'] as String?;
+  static String? get imageResourcesPath => versionSafePdfJsContext?['imageResourcesPath'] as String?;
   static set imageResourcesPath(String? imageResourcesPath) {
-    versionSafePdfJsContext!['imageResourcesPath'] = imageResourcesPath;
+    versionSafePdfJsContext?['imageResourcesPath'] = imageResourcesPath;
   }
 
-  static bool? get isEvalSupported => versionSafePdfJsContext!['isEvalSupported'] as bool?;
+  static bool? get isEvalSupported => versionSafePdfJsContext?['isEvalSupported'] as bool?;
   static set isEvalSupported(bool? isEvalSupported) {
-    versionSafePdfJsContext!['isEvalSupported'] = isEvalSupported;
+    versionSafePdfJsContext?['isEvalSupported'] = isEvalSupported;
   }
 
-  static int? get maxImageSize => versionSafePdfJsContext!['maxImageSize'] as int?;
+  static int? get maxImageSize => versionSafePdfJsContext?['maxImageSize'] as int?;
   static set maxImageSize(int? maxImageSize) {
-    versionSafePdfJsContext!['maxImageSize'] = maxImageSize;
+    versionSafePdfJsContext?['maxImageSize'] = maxImageSize;
   }
 
-  static bool? get pdfBug => versionSafePdfJsContext!['pdfBug'] as bool?;
+  static bool? get pdfBug => versionSafePdfJsContext?['pdfBug'] as bool?;
   static set pdfBug(bool? pdfBug) {
-    versionSafePdfJsContext!['pdfBug'] = pdfBug;
+    versionSafePdfJsContext?['pdfBug'] = pdfBug;
   }
 
-  static bool? get pdfjsNext => versionSafePdfJsContext!['pdfjsNext'] as bool?;
+  static bool? get pdfjsNext => versionSafePdfJsContext?['pdfjsNext'] as bool?;
   static set pdfjsNext(bool? pdfjsNext) {
-    versionSafePdfJsContext!['pdfjsNext'] = pdfjsNext;
+    versionSafePdfJsContext?['pdfjsNext'] = pdfjsNext;
   }
 
-  static bool? get postMessageTransfers => versionSafePdfJsContext!['postMessageTransfers'] as bool?;
+  static bool? get postMessageTransfers => versionSafePdfJsContext?['postMessageTransfers'] as bool?;
   static set postMessageTransfers(bool? postMessageTransfers) {
-    versionSafePdfJsContext!['postMessageTransfers'] = postMessageTransfers;
+    versionSafePdfJsContext?['postMessageTransfers'] = postMessageTransfers;
   }
 
-  static VERBOSITY_LEVELS? get verbosity => _verbosityLevelsPdfjsToDart[versionSafePdfJsContext!['verbosity']];
+  static VERBOSITY_LEVELS? get verbosity => _verbosityLevelsPdfjsToDart[versionSafePdfJsContext?['verbosity']];
   static set verbosity(VERBOSITY_LEVELS? verbosity) {
-    versionSafePdfJsContext!['verbosity'] = _verbosityLevelsDartToPdfjs[verbosity!];
+    versionSafePdfJsContext?['verbosity'] = _verbosityLevelsDartToPdfjs[verbosity];
   }
 
-  static int? get workerPort => versionSafePdfJsContext!['workerPort'] as int?;
+  static int? get workerPort => versionSafePdfJsContext?['workerPort'] as int?;
   static set workerPort(int? workerPort) {
-    versionSafePdfJsContext!['workerPort'] = workerPort;
+    versionSafePdfJsContext?['workerPort'] = workerPort;
   }
 
-  static String? get workerSrc => versionSafePdfJsContext!['workerSrc'] as String?;
+  static String? get workerSrc => versionSafePdfJsContext?['workerSrc'] as String?;
   static set workerSrc(String? workerSrc) {
-    versionSafePdfJsContext!['workerSrc'] = workerSrc;
+    versionSafePdfJsContext?['workerSrc'] = workerSrc;
   }
 
   // getDocument methods
 
   @deprecated
   static PDFDocumentLoadingTask getDocument(dynamic src) {
-    JsObject? documentTask = versionSafePdfJsContext!.callMethod('getDocument', [src]) as JsObject?;
+    JsObject? documentTask = versionSafePdfJsContext?.callMethod('getDocument', [src]) as JsObject?;
 
     return PDFDocumentLoadingTask._withJsInternal(documentTask);
   }
@@ -211,9 +211,9 @@ class PDFJS {
   // FOOTGUN: Both this list and the following list must be kept in
   // corresponding order
   static List<int?> _pdfjsVerbosityLevels = [
-    versionSafePdfJsContext!['VERBOSITY_LEVELS']['errors'] as int?,
-    versionSafePdfJsContext!['VERBOSITY_LEVELS']['warnings'] as int?,
-    versionSafePdfJsContext!['VERBOSITY_LEVELS']['infos'] as int?,
+    versionSafePdfJsContext?['VERBOSITY_LEVELS']['errors'] as int?,
+    versionSafePdfJsContext?['VERBOSITY_LEVELS']['warnings'] as int?,
+    versionSafePdfJsContext?['VERBOSITY_LEVELS']['infos'] as int?,
   ];
 
   // FOOTGUN: Both this list and the preceding list must be kept in
@@ -233,11 +233,11 @@ class PDFJS {
   // FOOTGUN: Both this list and the following list must be kept in
   // corresponding order
   static List<int?> _pdfjsLinkTarget = [
-    versionSafePdfJsContext!['LinkTarget']['NONE'] as int?,
-    versionSafePdfJsContext!['LinkTarget']['SELF'] as int?,
-    versionSafePdfJsContext!['LinkTarget']['BLANK'] as int?,
-    versionSafePdfJsContext!['LinkTarget']['PARENT'] as int?,
-    versionSafePdfJsContext!['LinkTarget']['TOP'] as int?,
+    versionSafePdfJsContext?['LinkTarget']['NONE'] as int?,
+    versionSafePdfJsContext?['LinkTarget']['SELF'] as int?,
+    versionSafePdfJsContext?['LinkTarget']['BLANK'] as int?,
+    versionSafePdfJsContext?['LinkTarget']['PARENT'] as int?,
+    versionSafePdfJsContext?['LinkTarget']['TOP'] as int?,
   ];
 
   // FOOTGUN: Both this list and the preceding list must be kept in
