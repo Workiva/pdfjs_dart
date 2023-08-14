@@ -56,7 +56,7 @@ class DocumentInitParameters {
   NativeImageDecoderSupport? get nativeImageDecoderSupport =>
       _nativeImageDecoderSupportPdfjsToDart[_jsInternal?['nativeImageDecoderSupport']];
   set nativeImageDecoderSupport(NativeImageDecoderSupport? nativeImageDecoderSupport) {
-    _jsInternal?['nativeImageDecoderSupport'] = _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport!];
+    _jsInternal?['nativeImageDecoderSupport'] = _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
   }
 
   String? get password => _jsInternal?['password'] as String?;
