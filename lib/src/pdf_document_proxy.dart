@@ -140,38 +140,38 @@ class PDFDocumentProxy {
 
   PDFDocumentProxy._withJsInternal(this._jsInternal);
 
-  String? get fingerprint => _jsInternal!['fingerprint'] as String?;
+  String? get fingerprint => _jsInternal?['fingerprint'] as String?;
 
-  int? get numPages => _jsInternal!['numPages'] as int?;
+  int? get numPages => _jsInternal?['numPages'] as int?;
 
   void cleanup({bool keepLoadedFonts = false}) {
-    _jsInternal!.callMethod('cleanup', [keepLoadedFonts]);
+    _jsInternal?.callMethod('cleanup', [keepLoadedFonts]);
   }
 
   void destroy() {
-    _jsInternal!.callMethod('destroy', []);
+    _jsInternal?.callMethod('destroy', []);
   }
 
   Future<TypedData> getData() {
-    JsObject promise = _jsInternal!.callMethod('getData', []) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getData', []) as JsObject;
 
     return _promiseToFuture<TypedData>(promise);
   }
 
   Future<List<dynamic>> getDestination(String id) {
-    JsObject promise = _jsInternal!.callMethod('getDestination', [id]) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getDestination', [id]) as JsObject;
 
     return _promiseToFuture<List<dynamic>>(promise, transform: (value) => _dartifyExplicitDestination(value as List));
   }
 
   Future<List<String>> getJavaScript() {
-    JsObject promise = _jsInternal!.callMethod('getJavaScript', []) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getJavaScript', []) as JsObject;
 
     return _promiseToFuture<List<String>>(promise);
   }
 
   Future<List<OutlineItem>> getOutline() {
-    JsObject promise = _jsInternal!.callMethod('getOutline', []) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getOutline', []) as JsObject;
 
     return _promiseToFuture<List<OutlineItem>>(promise, transform: (value) {
       List<JsObject>? outlineNodes;
@@ -190,20 +190,20 @@ class PDFDocumentProxy {
   }
 
   Future<PDFPageProxy> getPage(int pageNumber) {
-    JsObject promise = _jsInternal!.callMethod('getPage', [pageNumber]) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getPage', [pageNumber]) as JsObject;
 
     return _promiseToFuture<PDFPageProxy>(promise,
         transform: (value) => PDFPageProxy._withJsInternal(value as JsObject));
   }
 
   Future<int> getPageIndex(PageReference ref) {
-    JsObject promise = _jsInternal!.callMethod('getPageIndex', [ref._jsInternal]) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getPageIndex', [ref._jsInternal]) as JsObject;
 
     return _promiseToFuture<int>(promise);
   }
 
   Future<String> getPageMode() {
-    JsObject promise = _jsInternal!.callMethod('getPageMode', []) as JsObject;
+    JsObject promise = _jsInternal?.callMethod('getPageMode', []) as JsObject;
 
     return _promiseToFuture<String>(promise);
   }

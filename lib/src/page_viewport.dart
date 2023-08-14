@@ -24,7 +24,7 @@ class PageViewport {
   PageViewport._withJsInternal(this._jsInternal);
 
   PageViewport clone({num? rotation, num? scale}) {
-    JsObject? viewport = _jsInternal!.callMethod('clone', []) as JsObject?;
+    JsObject? viewport = _jsInternal?.callMethod('clone', []) as JsObject?;
 
     return PageViewport._withJsInternal(viewport);
   }

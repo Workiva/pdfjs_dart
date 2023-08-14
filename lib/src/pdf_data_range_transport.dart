@@ -23,27 +23,27 @@ abstract class PDFDataRangeTransport {
       initialData,
     ]);
 
-    _jsInternal!['abort'] = this.abort;
-    _jsInternal!['requestDataRange'] = this.requestDataRange;
+    _jsInternal?['abort'] = this.abort;
+    _jsInternal?['requestDataRange'] = this.requestDataRange;
   }
 
   void abort() {}
 
   void onDataProgress(int loaded) {
-    _jsInternal!.callMethod('onDataProgress', [loaded]);
+    _jsInternal?.callMethod('onDataProgress', [loaded]);
   }
 
   void onDataProgressiveRead(Uint8List chunk) {
-    _jsInternal!.callMethod('onDataProgressiveRead', [chunk]);
+    _jsInternal?.callMethod('onDataProgressiveRead', [chunk]);
   }
 
   void onDataRange(int begin, Uint8List chunk) {
-    _jsInternal!.callMethod('onDataRange', [begin, chunk]);
+    _jsInternal?.callMethod('onDataRange', [begin, chunk]);
   }
 
   void requestDataRange(int begin, int end);
 
   void transportReady() {
-    _jsInternal!.callMethod('transportReady', []);
+    _jsInternal?.callMethod('transportReady', []);
   }
 }
