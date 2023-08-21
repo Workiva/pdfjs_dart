@@ -14,7 +14,7 @@
 
 part of pdfjs;
 
-Future<S> _promiseToFuture<S>(JsObject promise, {Function transform}) {
+Future<S> _promiseToFuture<S>(JsObject promise, {Function? transform}) {
   Completer<S> completer = Completer();
 
   dynamic valueToDart(dynamic value) {
@@ -25,7 +25,7 @@ Future<S> _promiseToFuture<S>(JsObject promise, {Function transform}) {
     return value;
   }
 
-  promise.callMethod('then', [(value) => completer.complete(valueToDart(value) as FutureOr<S>)]);
+  promise.callMethod('then', [(value) => completer.complete(valueToDart(value) as FutureOr<S>?)]);
 
   promise.callMethod('catch', [(err) => completer.completeError(err)]);
 

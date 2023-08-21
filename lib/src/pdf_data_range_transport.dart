@@ -15,35 +15,35 @@
 part of pdfjs;
 
 abstract class PDFDataRangeTransport {
-  JsObject _jsInternal;
+  JsObject? _jsInternal;
 
   PDFDataRangeTransport(int length, Uint8List initialData) {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext['PDFDataRangeTransport'] as JsFunction, [
+    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext?['PDFDataRangeTransport'] as JsFunction, [
       length,
       initialData,
     ]);
 
-    _jsInternal['abort'] = this.abort;
-    _jsInternal['requestDataRange'] = this.requestDataRange;
+    _jsInternal?['abort'] = this.abort;
+    _jsInternal?['requestDataRange'] = this.requestDataRange;
   }
 
   void abort() {}
 
   void onDataProgress(int loaded) {
-    _jsInternal.callMethod('onDataProgress', [loaded]);
+    _jsInternal?.callMethod('onDataProgress', [loaded]);
   }
 
   void onDataProgressiveRead(Uint8List chunk) {
-    _jsInternal.callMethod('onDataProgressiveRead', [chunk]);
+    _jsInternal?.callMethod('onDataProgressiveRead', [chunk]);
   }
 
   void onDataRange(int begin, Uint8List chunk) {
-    _jsInternal.callMethod('onDataRange', [begin, chunk]);
+    _jsInternal?.callMethod('onDataRange', [begin, chunk]);
   }
 
   void requestDataRange(int begin, int end);
 
   void transportReady() {
-    _jsInternal.callMethod('transportReady', []);
+    _jsInternal?.callMethod('transportReady', []);
   }
 }
