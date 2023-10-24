@@ -36,9 +36,12 @@ class PDFPageView {
       case PDFPageViewRenderer.svg:
         rendererString = 'svg';
         break;
+      case null:
+        throw Exception('Un-expected error due to null renderer');
     }
 
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsViewerContext?['PDFPageView'] as JsFunction, [
+    _jsInternal = JsObject(
+        PDFJS.versionSafePdfJsViewerContext?['PDFPageView'] as JsFunction, [
       JsObject.jsify({
         'container': container,
         'id': id,
@@ -47,7 +50,8 @@ class PDFPageView {
         'renderer': rendererString,
         'annotationLayerFactory': annotationLayerFactory?._jsInternal,
         'textLayerFactory': textLayerFactory?._jsInternal,
-        'eventBus': JsObject(PDFJS.versionSafePdfJsViewerContext?['EventBus'] as JsFunction),
+        'eventBus': JsObject(
+            PDFJS.versionSafePdfJsViewerContext?['EventBus'] as JsFunction),
       })
     ]);
   }
@@ -80,10 +84,12 @@ class PDFPageView {
 
   /// v2.11.338+
   void _updateV2({num scale = 0, num rotation = 0}) {
-    _jsInternal.callMethod('update', [JsObject.jsify({
-      'scale': scale,
-      'rotation': rotation,
-    })]);
+    _jsInternal.callMethod('update', [
+      JsObject.jsify({
+        'scale': scale,
+        'rotation': rotation,
+      })
+    ]);
   }
 
   bool _isUpdated({num scale = 0, num rotation = 0}) {

@@ -8,3 +8,6 @@ environment:
 
 dependencies:
   quiver: ^3.0.0
+
+dev_dependencies:
+  dependency_validator: ^3.0.0

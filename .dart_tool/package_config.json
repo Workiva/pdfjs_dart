@@ -2,82 +2,160 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "args",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/args-2.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "async",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/async-2.11.0",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/async-2.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "boolean_selector",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.1",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
+      "name": "build_config",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/build_config-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "checked_yaml",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/checked_yaml-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "collection",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/collection-1.17.2",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/collection-1.18.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "dependency_validator",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/dependency_validator-3.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "file",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/file-6.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "glob",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/glob-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "io",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/io-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "json_annotation",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "logging",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/logging-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.16",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.16",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/meta-1.9.1",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/meta-1.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "package_config",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/package_config-2.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/path-1.8.3",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
+      "name": "pub_semver",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/pub_semver-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "pubspec_parse",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "quiver",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/quiver-3.2.1",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/quiver-3.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/source_span-1.10.0",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/source_span-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.11.0",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.1",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
     {
       "name": "string_scanner",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.2.0",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "term_glyph",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.1",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/pauldanner/.pub-cache/hosted/pub.dartlang.org/test_api-0.6.0",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/test_api-0.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "yaml",
+      "rootUri": "file:///Users/jayudey/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "pdfjs",
@@ -86,7 +164,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2023-08-14T12:15:26.921467Z",
+  "generated": "2023-10-27T14:28:22.763516Z",
   "generator": "pub",
   "generatorVersion": "2.18.7"
 }
