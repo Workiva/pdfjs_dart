@@ -36,6 +36,8 @@ class PDFPageView {
       case PDFPageViewRenderer.svg:
         rendererString = 'svg';
         break;
+      case null:
+        throw Exception('Un-expected error due to null renderer');
     }
 
     _jsInternal = JsObject(
