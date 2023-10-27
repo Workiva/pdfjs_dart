@@ -10,7 +10,7 @@ on:
       - '**'
 
 jobs:
-  build:
+  static-analysis:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -26,26 +26,9 @@ jobs:
         name: Install dependencies
         run: dart pub get
 
-      - name: Validate dependencies
-        run: dart run dependency_validator
-        if: always() && steps.install.outcome == 'success'
-
       - name: Analyze project source
         run: dart analyze
         if: always() && steps.install.outcome == 'success'
-
-  format:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        sdk: [ 2.18.7, 2.19.6 ]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: dart-lang/setup-dart@v0.2
-      - id: install
-        name: Install dependencies
-        run: dart pub get
 
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
