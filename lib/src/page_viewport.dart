@@ -18,7 +18,8 @@ class PageViewport {
   JsObject? _jsInternal;
 
   PageViewport() {
-    _jsInternal = JsObject(PDFJS.versionSafePdfJsContext?['PageViewport'] as JsFunction);
+    _jsInternal =
+        JsObject(PDFJS.versionSafePdfJsContext?['PageViewport'] as JsFunction);
   }
 
   PageViewport._withJsInternal(this._jsInternal);
