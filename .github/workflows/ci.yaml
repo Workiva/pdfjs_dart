@@ -33,3 +33,7 @@ jobs:
       - name: Verify formatting
         run: dart format --output=none --set-exit-if-changed .
         if: always() && steps.install.outcome == 'success'
+
+      - name: Check dependencies
+        run: dart run dependency_validator
+        if: always() && steps.install.outcome == 'success'
