@@ -1,5 +1,5 @@
 name: pdfjs
-version: 2.12.0
+version: 2.12.1
 description: Dart bindings for Mozilla's PDF.js library
 homepage: https://github.com/Workiva/pdfjs_dart
 
