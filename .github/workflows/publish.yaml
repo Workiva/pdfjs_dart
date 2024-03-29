@@ -1,5 +1,10 @@
 name: Publish to pub.dev
 
+permissions:
+  pull-requests: write
+  contents: write
+  id-token: write
+
 on:
   push:
     tags:
