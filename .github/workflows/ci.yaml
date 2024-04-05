@@ -5,6 +5,8 @@ on:
     branches:
       - 'master'
       - 'test_consume_*'
+    tags:
+      - "**"
   pull_request:
     branches:
       - '**'
@@ -37,3 +39,9 @@ jobs:
       - name: Check dependencies
         run: dart run dependency_validator
         if: always() && steps.install.outcome == 'success'
+
+      - uses: anchore/sbom-action@v0
+        if: ${{ matrix.sdk == '2.19.6' && matrix.os == 'ubuntu' }}
+        with:
+          path: ./
+          format: cyclonedx-json
