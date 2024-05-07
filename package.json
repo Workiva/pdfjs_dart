@@ -13,6 +13,6 @@
   },
   "homepage": "https://github.com/Workiva/pdfjs_dart",
   "dependencies": {
-    "pdfjs-dist": "2.11.338"
+    "pdfjs-dist": "4.2.67"
   }
 }
