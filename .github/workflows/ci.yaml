@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sdk: [ 2.18.7, 2.19.6 ]
+        sdk: [ 2.19.6 ]
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
@@ -41,7 +41,7 @@ jobs:
         if: always() && steps.install.outcome == 'success'
 
       - uses: anchore/sbom-action@v0
-        if: ${{ matrix.sdk == '2.19.6' && matrix.os == 'ubuntu' }}
+        if: ${{ matrix.os == 'ubuntu' }}
         with:
           path: ./
           format: cyclonedx-json
