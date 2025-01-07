@@ -26,7 +26,7 @@ class DocumentInitParameters {
 
   DocumentInitParameters() {
     _jsInternal = JsObject.jsify({});
-    
+
     // https://www.cisecurity.org/advisory/a-vulnerability-in-mozilla-pdfjs-could-allow-for-arbitrary-code-execution_2024-046
     // Vulnerability in Mozilla PDF.js Could Allow for Arbitrary Code Execution when isEvalSupported is set to true for PDF.js versions prior to 4.2.67.
     isEvalSupported = false;
