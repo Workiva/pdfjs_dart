@@ -34,4 +34,4 @@ jobs:
 
   publish:
     name: Publish to pub.dev
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1.6.5
