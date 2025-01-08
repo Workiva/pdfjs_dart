@@ -29,7 +29,7 @@ class DocumentInitParameters {
 
     // https://www.cisecurity.org/advisory/a-vulnerability-in-mozilla-pdfjs-could-allow-for-arbitrary-code-execution_2024-046
     // Vulnerability in Mozilla PDF.js Could Allow for Arbitrary Code Execution when isEvalSupported is set to true for PDF.js versions prior to 4.2.67.
-    isEvalSupported = false;
+    _jsInternal?['isEvalSupported'] = false;
   }
 
   TypedData? get data => _jsInternal?['data'] as TypedData?;
@@ -99,11 +99,6 @@ class DocumentInitParameters {
   bool? get withCredentials => _jsInternal?['withCredentials'] as bool?;
   set withCredentials(bool? withCredentials) {
     _jsInternal?['withCredentials'] = withCredentials;
-  }
-
-  bool? get isEvalSupported => _jsInternal?['isEvalSupported'] as bool?;
-  set isEvalSupported(bool? isEvalSupported) {
-    _jsInternal?['isEvalSupported'] = isEvalSupported;
   }
 
   // FOOTGUN: Both this list and the following list must be kept in
