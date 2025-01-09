@@ -4,7 +4,7 @@ description: Dart bindings for Mozilla's PDF.js library
 homepage: https://github.com/Workiva/pdfjs_dart
 
 environment:
-  sdk: '>=2.19.0 <3.0.0'
+  sdk: '>=2.19.0 <4.0.0'
 
 dependencies:
   quiver: ^3.0.0

@@ -185,7 +185,7 @@ class PDFDocumentProxy {
         outlineNodes = [];
         for (final val in value) {
           if (val is JsObject) {
-            outlineNodes.add(val as JsObject);
+            outlineNodes.add(val);
           }
         }
       }

@@ -1,3 +1,7 @@
+## 2.12.7
+
+- Addressing pub publish warnings
+
 ## 2.12.6
 
 - Init CHANGELOG.md
