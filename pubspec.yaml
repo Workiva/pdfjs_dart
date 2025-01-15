@@ -11,3 +11,4 @@ dependencies:
 
 dev_dependencies:
   dependency_validator: ^3.0.0
+  workiva_analysis_options: ^1.4.1
