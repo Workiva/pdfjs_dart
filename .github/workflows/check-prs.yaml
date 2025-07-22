@@ -2,7 +2,7 @@ name: Check Open Automated PRs
 on:
   schedule:
     # runs on weekdays at 5PM UTC
-    - cron: '0 17 * * 1-5'
+    - cron: '46 17 * * 1-5'
 
 permissions:
   contents: write
