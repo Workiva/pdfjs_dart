@@ -11,6 +11,6 @@ permissions:
 jobs:
   check-prs:
     secrets: inherit
-    uses: Workiva/gha-automated-pr-check/.github/workflows/automated-pr-check.yaml@v0.1.2
+    uses: Workiva/gha-automated-pr-check/.github/workflows/automated-pr-check.yaml@v0.1.3
     with:
       slack-alert-channel: 'C095QEHMWES' #grc-bot-prs-graph
