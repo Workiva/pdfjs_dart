@@ -1,15 +1,15 @@
 version: 2
-
 updates:
-  - package-ecosystem: github-actions
-    directory: /
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: weekly
-      time: "07:00"
+      interval: "weekly"
+      day: "thursday"
+      time: "10:00"
+      timezone: "America/Chicago"
+    labels:
+      - "semver: Patch"
     groups:
-      all:
-        patterns: ["*"]
-
-    ignore:
-      - dependency-name: "actions/checkout"
-        update-types: ["version-update:semver-major"]
+      gha-dependencies:
+        patterns:
+          - "*"
