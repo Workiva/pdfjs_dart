@@ -1,3 +1,4 @@
+# It enables automatic monitoring and updating of dependencies, in this case for GitHub Actions workflows 
 version: 2
 updates:
   - package-ecosystem: "github-actions"
