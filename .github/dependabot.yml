@@ -1,0 +1,16 @@
+# It enables automatic monitoring and updating of dependencies, in this case for GitHub Actions workflows 
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "thursday"
+      time: "10:00"
+      timezone: "America/Chicago"
+    labels:
+      - "semver: Patch"
+    groups:
+      gha-dependencies:
+        patterns:
+          - "*"
