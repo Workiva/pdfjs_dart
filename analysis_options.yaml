@@ -32,12 +32,6 @@ linter:
     # 0 issues
     - always_put_required_named_parameters_first
 
-    # Use @required.
-    # http://dart-lang.github.io/linter/lints/always_require_non_null_named_parameters.html
-    # recommendation: recommended
-    # 0 issues
-    - always_require_non_null_named_parameters
-
     # Specify type annotations.
     # http://dart-lang.github.io/linter/lints/always_specify_types.html
     # recommendation: optional
@@ -55,12 +49,6 @@ linter:
     # recommendation: optional
     # FIXME: 4 lint(s)
     # - avoid_annotating_with_dynamic
-
-    # Avoid using `as`.
-    # http://dart-lang.github.io/linter/lints/avoid_as.html
-    # recommendation: optional
-    # 0 issues
-    - avoid_as
 
     # Avoid bool literals in conditional expressions.
     # http://dart-lang.github.io/linter/lints/avoid_bool_literals_in_conditional_expressions.html
@@ -123,23 +111,11 @@ linter:
     # 0 issues
     - avoid_js_rounded_ints
 
-    # Don't check for null in custom == operators.
-    # http://dart-lang.github.io/linter/lints/avoid_null_checks_in_equality_operators.html
-    # recommendation: recommended
-    # 0 issues
-    - avoid_null_checks_in_equality_operators
-
     # Avoid positional boolean parameters.
     # http://dart-lang.github.io/linter/lints/avoid_positional_boolean_parameters.html
     # recommendation: recommended
     # 0 issues
     - avoid_positional_boolean_parameters
-
-    # Avoid private typedef functions.
-    # http://dart-lang.github.io/linter/lints/avoid_private_typedef_functions.html
-    # recommendation: optional
-    # 0 issues
-    - avoid_private_typedef_functions
 
     # Avoid relative imports for files in `lib/`.
     # http://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
@@ -159,12 +135,6 @@ linter:
     # recommendation: required
     # 0 issues
     - avoid_return_types_on_setters
-
-    # Avoid returning null from members whose return type is bool, double, int, or num.
-    # http://dart-lang.github.io/linter/lints/avoid_returning_null.html
-    # recommendation: recommended
-    # 0 issues
-    - avoid_returning_null
 
     # Avoid returning this from methods just to enable a fluent interface.
     # http://dart-lang.github.io/linter/lints/avoid_returning_this.html
@@ -292,18 +262,6 @@ linter:
     # 0 issues
     - implementation_imports
 
-    # Conditions should not unconditionally evaluate to `true` or to `false`.
-    # http://dart-lang.github.io/linter/lints/invariant_booleans.html
-    # recommendation: required
-    # 0 issues
-    - invariant_booleans
-
-    # Invocation of Iterable<E>.contains with references of unrelated types.
-    # http://dart-lang.github.io/linter/lints/iterable_contains_unrelated_type.html
-    # recommendation: required
-    # 0 issues
-    - iterable_contains_unrelated_type
-
     # Join return statement with assignment when possible.
     # http://dart-lang.github.io/linter/lints/join_return_with_assignment.html
     # recommendation: optional
@@ -321,12 +279,6 @@ linter:
     # recommendation: recommended
     # 0 issues
     - library_prefixes
-
-    # Invocation of `remove` with references of unrelated types.
-    # http://dart-lang.github.io/linter/lints/list_remove_unrelated_type.html
-    # recommendation: required
-    # 0 issues
-    - list_remove_unrelated_type
 
     # Boolean expression composed only with literals.
     # http://dart-lang.github.io/linter/lints/literal_only_boolean_expressions.html
@@ -359,12 +311,6 @@ linter:
     # FIXME: 8 lint(s)
     # - omit_local_variable_types
 
-    # Avoid defining a one-member abstract class when a simple function will do.
-    # http://dart-lang.github.io/linter/lints/one_member_abstracts.html
-    # recommendation: optional
-    # 0 issues
-    - one_member_abstracts
-
     # Only throw instances of classes extending either Exception or Error.
     # http://dart-lang.github.io/linter/lints/only_throw_errors.html
     # recommendation: required
@@ -376,12 +322,6 @@ linter:
     # recommendation: optional
     # 0 issues
     - overridden_fields
-
-    # Provide doc comments for all public APIs.
-    # http://dart-lang.github.io/linter/lints/package_api_docs.html
-    # recommendation: optional
-    # 0 issues
-    - package_api_docs
 
     # Use `lowercase_with_underscores` for package names.
     # http://dart-lang.github.io/linter/lints/package_names.html
