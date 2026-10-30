@@ -14,19 +14,9 @@
 
 part of pdfjs;
 
-enum LinkTarget {
-  NONE,
-  SELF,
-  BLANK,
-  PARENT,
-  TOP,
-}
+enum LinkTarget { NONE, SELF, BLANK, PARENT, TOP }
 
-enum VERBOSITY_LEVELS {
-  errors,
-  warnings,
-  infos,
-}
+enum VERBOSITY_LEVELS { errors, warnings, infos }
 
 class PDFJS {
   /// the local copy of versionSafePdfJsContext once initialized
@@ -206,7 +196,8 @@ class PDFJS {
   }
 
   static PDFDocumentLoadingTask getDocumentByDocumentInitParameters(
-      DocumentInitParameters src) {
+    DocumentInitParameters src,
+  ) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -222,7 +213,8 @@ class PDFJS {
   }
 
   static PDFDocumentLoadingTask getDocumentByPDFDataRangeTransport(
-      PDFDataRangeTransport src) {
+    PDFDataRangeTransport src,
+  ) {
     // ignore: deprecated_member_use
     return getDocument(src._jsInternal);
   }
@@ -271,9 +263,13 @@ class PDFJS {
     LinkTarget.TOP,
   ];
 
-  static Map<int?, LinkTarget> _linkTargetPdfjsToDart =
-      Map.fromIterables(_pdfjsLinkTarget, _dartLinkTarget);
+  static Map<int?, LinkTarget> _linkTargetPdfjsToDart = Map.fromIterables(
+    _pdfjsLinkTarget,
+    _dartLinkTarget,
+  );
 
-  static Map<LinkTarget, int?> _linkTargetDartToPdfjs =
-      Map.fromIterables(_dartLinkTarget, _pdfjsLinkTarget);
+  static Map<LinkTarget, int?> _linkTargetDartToPdfjs = Map.fromIterables(
+    _dartLinkTarget,
+    _pdfjsLinkTarget,
+  );
 }

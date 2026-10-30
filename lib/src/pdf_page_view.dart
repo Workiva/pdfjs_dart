@@ -41,19 +41,22 @@ class PDFPageView {
     }
 
     _jsInternal = JsObject(
-        PDFJS.versionSafePdfJsViewerContext?['PDFPageView'] as JsFunction, [
-      JsObject.jsify({
-        'container': container,
-        'id': id,
-        'scale': scale,
-        'defaultViewport': defaultViewport?._jsInternal,
-        'renderer': rendererString,
-        'annotationLayerFactory': annotationLayerFactory?._jsInternal,
-        'textLayerFactory': textLayerFactory?._jsInternal,
-        'eventBus': JsObject(
-            PDFJS.versionSafePdfJsViewerContext?['EventBus'] as JsFunction),
-      })
-    ]);
+      PDFJS.versionSafePdfJsViewerContext?['PDFPageView'] as JsFunction,
+      [
+        JsObject.jsify({
+          'container': container,
+          'id': id,
+          'scale': scale,
+          'defaultViewport': defaultViewport?._jsInternal,
+          'renderer': rendererString,
+          'annotationLayerFactory': annotationLayerFactory?._jsInternal,
+          'textLayerFactory': textLayerFactory?._jsInternal,
+          'eventBus': JsObject(
+            PDFJS.versionSafePdfJsViewerContext?['EventBus'] as JsFunction,
+          ),
+        }),
+      ],
+    );
   }
 
   DivElement? get div => _jsInternal['div'] as DivElement?;
@@ -85,10 +88,7 @@ class PDFPageView {
   /// v2.11.338+
   void _updateV2({num scale = 0, num rotation = 0}) {
     _jsInternal.callMethod('update', [
-      JsObject.jsify({
-        'scale': scale,
-        'rotation': rotation,
-      })
+      JsObject.jsify({'scale': scale, 'rotation': rotation}),
     ]);
   }
 
