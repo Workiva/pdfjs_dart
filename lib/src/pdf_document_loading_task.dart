@@ -48,5 +48,6 @@ class PDFDocumentLoadingTask {
   Future<S> then<S>(
     FutureOr<S> onValue(PDFDocumentProxy value), {
     Function? onError,
-  }) => _future!.then(onValue, onError: onError);
+  }) =>
+      _future!.then(onValue, onError: onError);
 }

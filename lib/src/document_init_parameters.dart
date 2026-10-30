@@ -55,7 +55,8 @@ class DocumentInitParameters {
   }
 
   NativeImageDecoderSupport? get nativeImageDecoderSupport =>
-      _nativeImageDecoderSupportPdfjsToDart[_jsInternal?['nativeImageDecoderSupport']];
+      _nativeImageDecoderSupportPdfjsToDart[
+          _jsInternal?['nativeImageDecoderSupport']];
   set nativeImageDecoderSupport(
     NativeImageDecoderSupport? nativeImageDecoderSupport,
   ) {
@@ -114,13 +115,13 @@ class DocumentInitParameters {
   ];
 
   static Map<String, NativeImageDecoderSupport>
-  _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
+      _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
     _pdfjsNativeImageDecoderSupport,
     _dartNativeImageDecoderSupport,
   );
 
   static Map<NativeImageDecoderSupport, String>
-  _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
+      _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
     _dartNativeImageDecoderSupport,
     _pdfjsNativeImageDecoderSupport,
   );

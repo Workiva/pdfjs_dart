@@ -73,26 +73,25 @@ abstract class IPDFAnnotationLayerFactory {
   JsObject? _jsInternal;
 
   IPDFAnnotationLayerFactory() {
-    _jsInternal?['createAnnotationLayerBuilder'] =
-        (
-          DivElement pageDiv,
-          JsObject jsPdfPage, [
-          bool? renderInteractiveForms,
-          JsObject? jsL10n,
-        ]) {
-          PDFPageProxy pdfPage = PDFPageProxy._withJsInternal(jsPdfPage);
-          IL10n l10n = _JsIL10n._withJsInternal(jsL10n);
+    _jsInternal?['createAnnotationLayerBuilder'] = (
+      DivElement pageDiv,
+      JsObject jsPdfPage, [
+      bool? renderInteractiveForms,
+      JsObject? jsL10n,
+    ]) {
+      PDFPageProxy pdfPage = PDFPageProxy._withJsInternal(jsPdfPage);
+      IL10n l10n = _JsIL10n._withJsInternal(jsL10n);
 
-          AnnotationLayerBuilder annotationLayerBuilder =
-              createAnnotationLayerBuilder(
-                pageDiv,
-                pdfPage,
-                l10n: l10n,
-                renderInteractiveForms: renderInteractiveForms,
-              );
+      AnnotationLayerBuilder annotationLayerBuilder =
+          createAnnotationLayerBuilder(
+        pageDiv,
+        pdfPage,
+        l10n: l10n,
+        renderInteractiveForms: renderInteractiveForms,
+      );
 
-          return annotationLayerBuilder._jsInternal;
-        };
+      return annotationLayerBuilder._jsInternal;
+    };
   }
 
   AnnotationLayerBuilder createAnnotationLayerBuilder(

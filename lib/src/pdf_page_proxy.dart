@@ -57,8 +57,8 @@ class PDFPageProxy {
 
   /// Get a map of prop values useful for logging context
   Map<String, dynamic> toContext({String prefix = 'PDFPageProxy'}) => {
-    '$prefix.pageNumber': pageNumber,
-    '$prefix.rotate': rotate,
-    '$prefix.userUnit': userUnit,
-  };
+        '$prefix.pageNumber': pageNumber,
+        '$prefix.rotate': rotate,
+        '$prefix.userUnit': userUnit,
+      };
 }
