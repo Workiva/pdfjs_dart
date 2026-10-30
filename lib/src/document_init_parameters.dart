@@ -14,11 +14,7 @@
 
 part of pdfjs;
 
-enum NativeImageDecoderSupport {
-  decode,
-  display,
-  none,
-}
+enum NativeImageDecoderSupport { decode, display, none }
 
 class DocumentInitParameters {
   JsObject? _jsInternal;
@@ -59,10 +55,10 @@ class DocumentInitParameters {
   }
 
   NativeImageDecoderSupport? get nativeImageDecoderSupport =>
-      _nativeImageDecoderSupportPdfjsToDart[
-          _jsInternal?['nativeImageDecoderSupport']];
+      _nativeImageDecoderSupportPdfjsToDart[_jsInternal?['nativeImageDecoderSupport']];
   set nativeImageDecoderSupport(
-      NativeImageDecoderSupport? nativeImageDecoderSupport) {
+    NativeImageDecoderSupport? nativeImageDecoderSupport,
+  ) {
     _jsInternal?['nativeImageDecoderSupport'] =
         _nativeImageDecoderSupportDartToPdfjs[nativeImageDecoderSupport];
   }
@@ -118,10 +114,14 @@ class DocumentInitParameters {
   ];
 
   static Map<String, NativeImageDecoderSupport>
-      _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
-          _pdfjsNativeImageDecoderSupport, _dartNativeImageDecoderSupport);
+  _nativeImageDecoderSupportPdfjsToDart = Map.fromIterables(
+    _pdfjsNativeImageDecoderSupport,
+    _dartNativeImageDecoderSupport,
+  );
 
   static Map<NativeImageDecoderSupport, String>
-      _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
-          _dartNativeImageDecoderSupport, _pdfjsNativeImageDecoderSupport);
+  _nativeImageDecoderSupportDartToPdfjs = Map.fromIterables(
+    _dartNativeImageDecoderSupport,
+    _pdfjsNativeImageDecoderSupport,
+  );
 }

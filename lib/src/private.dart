@@ -25,8 +25,9 @@ Future<S> _promiseToFuture<S>(JsObject promise, {Function? transform}) {
     return value;
   }
 
-  promise.callMethod('then',
-      [(value) => completer.complete(valueToDart(value) as FutureOr<S>?)]);
+  promise.callMethod('then', [
+    (value) => completer.complete(valueToDart(value) as FutureOr<S>?),
+  ]);
 
   promise.callMethod('catch', [(err) => completer.completeError(err)]);
 
